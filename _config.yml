@@ -11,8 +11,3 @@ plugins:
   - jekyll-seo-tag
 sass:
   style: compressed
-  load_paths:
-    - assets
-minima:
-  skin: null
-  include_css: ["/assets/main.css"]
