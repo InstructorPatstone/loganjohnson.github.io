@@ -5,7 +5,6 @@ description: >- # this means to ignore newlines until next key
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://loganjohnson.github.io" # the base hostname & protocol for your site
 # Build settings
-theme: minima
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
