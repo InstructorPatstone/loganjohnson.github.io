@@ -1,13 +1,38 @@
 ---
 ---
 
+// Override all minima styles
+* {
+  box-sizing: border-box;
+}
+
 body {
-  font-family: 'Segoe UI', Arial, sans-serif;
-  background: linear-gradient(135deg, #181a1b 0%, #23272a 100%);
-  color: #f3f3f3;
-  margin: 0;
-  min-height: 100vh;
-  overflow-x: hidden;
+  font-family: 'Segoe UI', Arial, sans-serif !important;
+  background: linear-gradient(135deg, #181a1b 0%, #23272a 100%) !important;
+  color: #f3f3f3 !important;
+  margin: 0 !important;
+  min-height: 100vh !important;
+  overflow-x: hidden !important;
+  padding: 0 !important;
+}
+
+// Reset minima header and navigation
+.site-header {
+  display: none !important;
+}
+
+.site-nav {
+  display: none !important;
+}
+
+.wrapper {
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.page-content {
+  padding: 0 !important;
 }
 
 .hero-container {
