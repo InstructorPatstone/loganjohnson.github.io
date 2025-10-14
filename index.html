@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logan Johnson | Game Development Portfolio</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #181a1b 0%, #23272a 100%);
+            color: #f3f3f3;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .hero-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 60vh;
+            overflow: hidden;
+        }
+
+        .hero-glow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 700px;
+            height: 700px;
+            background: radial-gradient(circle, rgba(97, 218, 251, 0.2) 0%, rgba(35, 39, 42, 0) 80%);
+            transform: translate(-50%, -50%);
+            filter: blur(60px);
+            z-index: 0;
+            animation: glowPulse 6s ease-in-out infinite alternate;
+        }
+
+        @keyframes glowPulse {
+            0% { opacity: 0.7; }
+            100% { opacity: 1; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 3rem 2rem;
+            border-radius: 18px;
+            background: rgba(35, 39, 42, 0.85);
+            box-shadow: 0 8px 40px rgba(97, 218, 251, 0.13);
+            animation: fadeInUp 1.2s cubic-bezier(.23, 1.01, .32, 1) 0.2s both;
+            max-width: 800px;
+        }
+
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(40px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-title {
+            font-size: 3.2rem;
+            letter-spacing: 3px;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(90deg, #61dafb 30%, #a1c4fd 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: #b2eaff;
+            margin-bottom: 1.2rem;
+            letter-spacing: 1px;
+        }
+
+        .hero-intro {
+            font-size: 1.15rem;
+            color: #e0e0e0;
+            margin-bottom: 2.2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-nav {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-btn {
+            background: linear-gradient(90deg, #61dafb 0%, #a1c4fd 100%);
+            color: #23272a;
+            font-weight: 600;
+            border: none;
+            border-radius: 6px;
+            padding: 0.7rem 2rem;
+            font-size: 1.1rem;
+            text-decoration: none;
+            box-shadow: 0 2px 12px rgba(97, 218, 251, 0.2);
+            transition: transform 0.18s, box-shadow 0.18s, background 0.18s;
+            cursor: pointer;
+        }
+
+        .nav-btn:hover {
+            transform: translateY(-3px) scale(1.04);
+            box-shadow: 0 6px 24px rgba(97, 218, 251, 0.33);
+            background: linear-gradient(90deg, #a1c4fd 0%, #61dafb 100%);
+        }
+
+        .main-future {
+            max-width: 900px;
+            margin: 2.5rem auto 0 auto;
+            padding: 2.5rem 2rem;
+            background: rgba(35, 39, 42, 0.92);
+            border-radius: 18px;
+            box-shadow: 0 4px 32px rgba(97, 218, 251, 0.067);
+            animation: fadeInUp 1.2s cubic-bezier(.23, 1.01, .32, 1) 0.6s both;
+        }
+
+        .about-section, .featured-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .about-section h2, .featured-section h2 {
+            font-size: 2rem;
+            color: #61dafb;
+            margin-bottom: 1rem;
+        }
+
+        .about-section p {
+            font-size: 1.1rem;
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+
+        .featured-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .featured-card {
+            background: rgba(24, 26, 27, 0.98);
+            border-radius: 12px;
+            box-shadow: 0 2px 16px rgba(97, 218, 251, 0.13);
+            padding: 1.5rem 1.2rem;
+            transition: transform 0.18s, box-shadow 0.18s;
+            border: 1px solid #23272a;
+        }
+
+        .featured-card:hover {
+            transform: translateY(-6px) scale(1.03);
+            box-shadow: 0 8px 32px rgba(97, 218, 251, 0.27);
+        }
+
+        .featured-card h3 {
+            color: #61dafb;
+            margin-top: 0;
+            margin-bottom: 0.7rem;
+            font-size: 1.25rem;
+        }
+
+        .featured-card p {
+            color: #b2eaff;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 700px) {
+            .hero-title { font-size: 2.1rem; }
+            .main-future { padding: 1.2rem 0.5rem; }
+            .hero-content { padding: 2rem 1rem; }
+        }
+
+        @media (max-width: 500px) {
+            .hero-nav { flex-direction: column; gap: 0.7rem; }
+            .main-future { padding: 1rem; margin: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero-container">
+        <div class="hero-glow"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">Logan Johnson</h1>
+            <p class="hero-subtitle">Game Developer & Creator</p>
+            <p class="hero-intro">Welcome to my portfolio. Explore my journey through game development, from Garry's Mod scripting to building immersive worlds in Unity and Unreal Engine 5. Dive into my featured projects and see what I'm working on next!</p>
+            <nav class="hero-nav">
+                <a href="garrysmod.html" class="nav-btn">Garry's Mod</a>
+                <a href="projectwarfront.html" class="nav-btn">Project Warfront</a>
+                <a href="unity.html" class="nav-btn">Unity Engine</a>
+                <a href="unreal.html" class="nav-btn">Unreal Engine 5</a>
+            </nav>
+        </div>
+    </div>
+
+    <main class="main-future">
+        <section class="about-section">
+            <h2>About Me</h2>
+            <p>I am passionate about creating interactive experiences and pushing the boundaries of gameplay. My portfolio spans scripting, level design, and full game development across multiple engines. I love learning new technologies and collaborating with other creators.</p>
+        </section>
+        <section class="featured-section">
+            <h2>Featured Projects</h2>
+            <div class="featured-grid">
+                <div class="featured-card">
+                    <h3>Garry's Mod Addons</h3>
+                    <p>Custom game modes, tools, and scripts for the GMod community.</p>
+                </div>
+                <div class="featured-card">
+                    <h3>Project Warfront</h3>
+                    <p>My original multiplayer FPS, built from the ground up with unique mechanics.</p>
+                </div>
+                <div class="featured-card">
+                    <h3>Unity Engine Games</h3>
+                    <p>2D and 3D games, prototypes, and interactive experiences using Unity.</p>
+                </div>
+                <div class="featured-card">
+                    <h3>Unreal Engine 5 Worlds</h3>
+                    <p>High-fidelity environments and gameplay systems in UE5.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
