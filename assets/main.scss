@@ -15,6 +15,12 @@ body {
   padding: 0 !important;
 }
 
+/* Debug - this should make any h1 bright green */
+h1 {
+  color: lime !important;
+  font-size: 4rem !important;
+}
+
 .hero-container {
   position: relative;
   display: flex;
