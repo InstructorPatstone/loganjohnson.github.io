@@ -11,6 +11,10 @@
             padding: 0; 
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #0a0e11 0%, #151a1f 50%, #1a1f27 100%);
@@ -354,6 +358,13 @@
             font-size: 1.2rem;
         }
 
+        /* Feature card link styling */
+        .feature-card-link {
+            text-decoration: none;
+            display: block;
+            color: inherit;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             h1 {
@@ -395,42 +406,42 @@
 
         <!-- Quick Features Overview -->
         <div class="feature-grid">
-            <div class="feature-card">
+            <a href="#construction" class="feature-card feature-card-link">
                 <div class="feature-card-icon">🏗️</div>
                 <h3>Construction System</h3>
                 <p>Strategic base building with real-time placement and destruction mechanics</p>
-            </div>
-            <div class="feature-card">
+            </a>
+            <a href="#war-progression" class="feature-card feature-card-link">
                 <div class="feature-card-icon">⚔️</div>
                 <h3>War Progression</h3>
                 <p>Dynamic match progression system with escalating objectives</p>
-            </div>
-            <div class="feature-card">
+            </a>
+            <a href="#elite-units" class="feature-card feature-card-link">
                 <div class="feature-card-icon">👑</div>
                 <h3>Elite Units</h3>
                 <p>Specialized high-power units with unique abilities and mechanics</p>
-            </div>
-            <div class="feature-card">
+            </a>
+            <a href="#community" class="feature-card feature-card-link">
                 <div class="feature-card-icon">👥</div>
                 <h3>Community Tools</h3>
                 <p>Comprehensive community management features for clans and groups</p>
-            </div>
-            <div class="feature-card">
+            </a>
+            <a href="#progression" class="feature-card feature-card-link">
                 <div class="feature-card-icon">📊</div>
                 <h3>Progression System</h3>
                 <p>Deep progression mechanics with cosmetics and unlockables</p>
-            </div>
-            <div class="feature-card">
+            </a>
+            <a href="#roadblocks" class="feature-card feature-card-link">
                 <div class="feature-card-icon">🎮</div>
                 <h3>Game Systems</h3>
                 <p>Balanced multiplayer experience with team-based gameplay</p>
-            </div>
+            </a>
         </div>
 
         <!-- Detailed Sections -->
 
         <!-- Construction System -->
-        <div class="category-section">
+        <div class="category-section" id="construction">
             <h3>Construction System</h3>
             <div class="description">
                 The Construction System is the backbone of Project Warfront's strategic gameplay. It allows players to build defensive and offensive structures in real-time during matches, creating dynamic battlefield terrain that evolves throughout the game.
@@ -448,7 +459,7 @@
         </div>
 
         <!-- War Progression System -->
-        <div class="category-section">
+        <div class="category-section" id="war-progression">
             <h3>War Progression System</h3>
             <div class="description">
                 The War Progression System creates dynamic match pacing, ensuring every moment feels significant. This system manages objectives, match phases, and escalating intensity to keep gameplay engaging from start to finish.
@@ -466,7 +477,7 @@
         </div>
 
         <!-- Elite Unit System -->
-        <div class="category-section">
+        <div class="category-section" id="elite-units">
             <h3>Elite Unit System</h3>
             <div class="description">
                 Elite Units are powerful specialized characters that provide unique tactical options. This system balances high-impact gameplay while maintaining fairness through cooldowns, positioning requirements, and team coordination needs.
@@ -484,7 +495,7 @@
         </div>
 
         <!-- Community Management -->
-        <div class="category-section">
+        <div class="category-section" id="community">
             <h3>Community Management</h3>
             <div class="description">
                 Community Management features empower players to organize, communicate, and compete together. These systems foster long-term engagement and create social structures that enhance the multiplayer experience.
@@ -502,7 +513,7 @@
         </div>
 
         <!-- Development Roadblocks -->
-        <div class="category-section">
+        <div class="category-section" id="roadblocks">
             <h3>Development Roadblocks & Solutions</h3>
             <div class="description">
                 Every ambitious project faces challenges. This section documents the technical hurdles encountered during Project Warfront's development and the innovative solutions implemented to overcome them, showcasing problem-solving and adaptability.
