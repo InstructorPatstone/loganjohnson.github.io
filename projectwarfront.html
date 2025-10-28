@@ -5,55 +5,519 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project Warfront | Logan Johnson</title>
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+        * { 
+            box-sizing: border-box; 
+            margin: 0; 
+            padding: 0; 
+        }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #181a1b 0%, #23272a 100%);
+            background: linear-gradient(135deg, #0a0e11 0%, #151a1f 50%, #1a1f27 100%);
             color: #f3f3f3;
             min-height: 100vh;
             padding: 2rem;
+            position: relative;
+            overflow-x: hidden;
         }
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            background: rgba(35, 39, 42, 0.92);
-            border-radius: 18px;
-            padding: 2rem;
-            box-shadow: 0 4px 32px rgba(97, 218, 251, 0.067);
+
+        /* Animated background effect */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(97, 218, 251, 0.03) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(161, 196, 253, 0.03) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
         }
-        h1 {
-            color: #61dafb;
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            text-align: center;
-        }
+
         .back-btn {
             background: linear-gradient(90deg, #61dafb 0%, #a1c4fd 100%);
-            color: #23272a;
-            padding: 0.5rem 1.5rem;
+            color: #0a0e11;
+            padding: 0.6rem 1.8rem;
             text-decoration: none;
-            border-radius: 6px;
-            font-weight: 600;
+            border-radius: 8px;
+            font-weight: 700;
             display: inline-block;
             margin-bottom: 2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(97, 218, 251, 0.2);
+            letter-spacing: 0.5px;
         }
+
         .back-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 16px rgba(97, 218, 251, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(97, 218, 251, 0.4);
+            background: linear-gradient(90deg, #a1c4fd 0%, #61dafb 100%);
         }
-        p {
-            font-size: 1.1rem;
-            color: #e0e0e0;
-            line-height: 1.6;
+
+        .header {
+            max-width: 1000px;
+            margin: 0 auto 3rem auto;
+            position: relative;
+        }
+
+        .header-glow {
+            position: absolute;
+            top: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(97, 218, 251, 0.15) 0%, transparent 70%);
+            filter: blur(80px);
+            z-index: 0;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
             text-align: center;
+            animation: slideDown 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            color: #61dafb;
+            font-size: 3.5rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: 2px;
+            text-shadow: 0 0 30px rgba(97, 218, 251, 0.3);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #b2eaff;
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+        }
+
+        .main-container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* Overview Section */
+        .overview-section {
+            background: rgba(35, 39, 42, 0.7);
+            border: 1px solid rgba(97, 218, 251, 0.2);
+            border-radius: 16px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            backdrop-filter: blur(10px);
+            animation: fadeInUp 0.8s ease 0.2s both;
+            box-shadow: 0 8px 32px rgba(97, 218, 251, 0.1);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .overview-section h2 {
+            color: #61dafb;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            letter-spacing: 1px;
+        }
+
+        .overview-section p {
+            font-size: 1.1rem;
+            color: #d4d4d4;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        /* Feature Grid */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, rgba(35, 39, 42, 0.8) 0%, rgba(24, 26, 27, 0.6) 100%);
+            border: 1px solid rgba(97, 218, 251, 0.15);
+            border-radius: 14px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            animation: fadeInUp 0.8s ease both;
+            cursor: pointer;
+        }
+
+        .feature-card:nth-child(1) { animation-delay: 0.3s; }
+        .feature-card:nth-child(2) { animation-delay: 0.4s; }
+        .feature-card:nth-child(3) { animation-delay: 0.5s; }
+        .feature-card:nth-child(4) { animation-delay: 0.6s; }
+        .feature-card:nth-child(5) { animation-delay: 0.7s; }
+        .feature-card:nth-child(6) { animation-delay: 0.8s; }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(97, 218, 251, 0.2), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .feature-card:hover::before {
+            left: 100%;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-12px);
+            border-color: rgba(97, 218, 251, 0.4);
+            box-shadow: 0 20px 50px rgba(97, 218, 251, 0.2);
+            background: linear-gradient(135deg, rgba(35, 39, 42, 1) 0%, rgba(24, 26, 27, 0.8) 100%);
+        }
+
+        .feature-card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+            background: linear-gradient(90deg, #61dafb 0%, #a1c4fd 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .feature-card h3 {
+            color: #61dafb;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+            letter-spacing: 0.5px;
+        }
+
+        .feature-card p {
+            color: #a8a8a8;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Category Sections */
+        .category-section {
+            background: rgba(35, 39, 42, 0.7);
+            border: 1px solid rgba(97, 218, 251, 0.15);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.4s ease;
+            animation: fadeInUp 0.8s ease both;
+            box-shadow: 0 8px 32px rgba(97, 218, 251, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .category-section::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(97, 218, 251, 0.05) 0%, transparent 70%);
+            filter: blur(60px);
+            pointer-events: none;
+        }
+
+        .category-section:hover {
+            border-color: rgba(97, 218, 251, 0.3);
+            box-shadow: 0 12px 48px rgba(97, 218, 251, 0.15);
+        }
+
+        .category-section:nth-of-type(1) { animation-delay: 0.5s; }
+        .category-section:nth-of-type(2) { animation-delay: 0.6s; }
+        .category-section:nth-of-type(3) { animation-delay: 0.7s; }
+        .category-section:nth-of-type(4) { animation-delay: 0.8s; }
+        .category-section:nth-of-type(5) { animation-delay: 0.9s; }
+
+        .category-section h3 {
+            color: #a1c4fd;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .category-section h3::before {
+            content: '';
+            display: inline-block;
+            width: 4px;
+            height: 24px;
+            background: linear-gradient(180deg, #61dafb, #a1c4fd);
+            border-radius: 2px;
+        }
+
+        .content-area {
+            background: rgba(24, 26, 27, 0.4);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(97, 218, 251, 0.1);
+            min-height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .content-area::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(97, 218, 251, 0.05), transparent);
+            opacity: 0;
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { opacity: 0; }
+            50% { opacity: 1; }
+        }
+
+        .placeholder-text {
+            color: #61dafb;
+            font-size: 1rem;
+            text-align: center;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .description {
+            color: #c8c8c8;
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .bullet-list {
+            list-style: none;
+            margin: 1rem 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .bullet-list li {
+            color: #a8a8a8;
+            padding: 0.6rem 0;
+            padding-left: 2rem;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .bullet-list li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: #61dafb;
+            font-size: 1.2rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            .overview-section,
+            .category-section {
+                padding: 1.5rem;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .content-area {
+                min-height: 200px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <a href="index.html" class="back-btn">← Back to Home</a>
-        <h1>Project Warfront</h1>
-        <p>Highlight your work on Project Warfront. Include gameplay, features, and development insights.</p>
+    <div class="header">
+        <div class="header-glow"></div>
+        <div class="header-content">
+            <a href="index.html" class="back-btn">← Back to Home</a>
+            <h1>Project Warfront</h1>
+            <p class="subtitle">Strategic Multiplayer FPS with Advanced Game Systems</p>
+        </div>
+    </div>
+
+    <div class="main-container">
+        <!-- Overview Section -->
+        <div class="overview-section">
+            <h2>Project Overview</h2>
+            <p>Project Warfront is an original multiplayer first-person shooter built from the ground up, combining strategic gameplay mechanics with innovative systems. The game emphasizes teamwork, progression, and competitive depth through unique features that set it apart in the FPS genre.</p>
+            <p>This project showcases advanced game development capabilities including complex system architecture, real-time networking, and polished user experience design. Every system is designed to work cohesively, creating an engaging and balanced gameplay experience.</p>
+        </div>
+
+        <!-- Quick Features Overview -->
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="feature-card-icon">🏗️</div>
+                <h3>Construction System</h3>
+                <p>Strategic base building with real-time placement and destruction mechanics</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-card-icon">⚔️</div>
+                <h3>War Progression</h3>
+                <p>Dynamic match progression system with escalating objectives</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-card-icon">👑</div>
+                <h3>Elite Units</h3>
+                <p>Specialized high-power units with unique abilities and mechanics</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-card-icon">👥</div>
+                <h3>Community Tools</h3>
+                <p>Comprehensive community management features for clans and groups</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-card-icon">📊</div>
+                <h3>Progression System</h3>
+                <p>Deep progression mechanics with cosmetics and unlockables</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-card-icon">🎮</div>
+                <h3>Game Systems</h3>
+                <p>Balanced multiplayer experience with team-based gameplay</p>
+            </div>
+        </div>
+
+        <!-- Detailed Sections -->
+
+        <!-- Construction System -->
+        <div class="category-section">
+            <h3>Construction System</h3>
+            <div class="description">
+                The Construction System is the backbone of Project Warfront's strategic gameplay. It allows players to build defensive and offensive structures in real-time during matches, creating dynamic battlefield terrain that evolves throughout the game.
+            </div>
+            <div class="content-area">
+                <div class="placeholder-text">📷 [CONSTRUCTION SYSTEM SHOWCASE - Video/Images Go Here]</div>
+            </div>
+            <ul class="bullet-list">
+                <li>Real-time structure placement with snap-to-grid system</li>
+                <li>Resource-based building economy with cost balancing</li>
+                <li>Destructible structures with health systems and damage states</li>
+                <li>Strategic positioning gameplay with building placement tactics</li>
+                <li>Visual feedback systems for placement validation and building status</li>
+            </ul>
+        </div>
+
+        <!-- War Progression System -->
+        <div class="category-section">
+            <h3>War Progression System</h3>
+            <div class="description">
+                The War Progression System creates dynamic match pacing, ensuring every moment feels significant. This system manages objectives, match phases, and escalating intensity to keep gameplay engaging from start to finish.
+            </div>
+            <div class="content-area">
+                <div class="placeholder-text">📹 [WAR PROGRESSION DEMO - Video/Screenshots Go Here]</div>
+            </div>
+            <ul class="bullet-list">
+                <li>Multi-phase match structure with escalating objectives</li>
+                <li>Dynamic difficulty scaling based on team performance</li>
+                <li>Win condition management with multiple victory paths</li>
+                <li>Real-time statistics and match state tracking</li>
+                <li>Tension-building mechanics for competitive depth</li>
+            </ul>
+        </div>
+
+        <!-- Elite Unit System -->
+        <div class="category-section">
+            <h3>Elite Unit System</h3>
+            <div class="description">
+                Elite Units are powerful specialized characters that provide unique tactical options. This system balances high-impact gameplay while maintaining fairness through cooldowns, positioning requirements, and team coordination needs.
+            </div>
+            <div class="content-area">
+                <div class="placeholder-text">🎬 [ELITE UNITS GAMEPLAY - Video/Footage Goes Here]</div>
+            </div>
+            <ul class="bullet-list">
+                <li>Distinct unit archetypes with unique abilities and roles</li>
+                <li>Balanced cost and availability systems to prevent dominance</li>
+                <li>Special ability mechanics with strategic cooldown management</li>
+                <li>Visual identity and animation systems for clarity</li>
+                <li>Skill-based execution with high skill ceiling gameplay</li>
+            </ul>
+        </div>
+
+        <!-- Community Management -->
+        <div class="category-section">
+            <h3>Community Management</h3>
+            <div class="description">
+                Community Management features empower players to organize, communicate, and compete together. These systems foster long-term engagement and create social structures that enhance the multiplayer experience.
+            </div>
+            <div class="content-area">
+                <div class="placeholder-text">💬 [COMMUNITY FEATURES - Interface Screenshots/Demos]</div>
+            </div>
+            <ul class="bullet-list">
+                <li>Clan and group creation with customizable settings</li>
+                <li>In-game communication channels and messaging systems</li>
+                <li>Leaderboards and competitive ranking systems</li>
+                <li>Community events and seasonal content management</li>
+                <li>Moderation tools and community guidelines enforcement</li>
+            </ul>
+        </div>
+
+        <!-- Development Roadblocks -->
+        <div class="category-section">
+            <h3>Development Roadblocks & Solutions</h3>
+            <div class="description">
+                Every ambitious project faces challenges. This section documents the technical hurdles encountered during Project Warfront's development and the innovative solutions implemented to overcome them, showcasing problem-solving and adaptability.
+            </div>
+            <div class="content-area">
+                <div class="placeholder-text">📋 [TECHNICAL CHALLENGES & SOLUTIONS - Documentation/Diagrams]</div>
+            </div>
+            <ul class="bullet-list">
+                <li>Network synchronization challenges with server authoritative validation</li>
+                <li>Balancing gameplay complexity with performance optimization</li>
+                <li>Cross-platform compatibility and platform-specific issues</li>
+                <li>Feature scope management and prioritization strategies</li>
+                <li>Community feedback integration into development cycles</li>
+            </ul>
+        </div>
     </div>
 </body>
 </html>
