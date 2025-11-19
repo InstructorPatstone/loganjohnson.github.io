@@ -6,54 +6,206 @@
     <title>Unity Engine | Logan Johnson</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #181a1b 0%, #23272a 100%);
-            color: #f3f3f3;
+            background: radial-gradient(circle at top, #1f2933 0%, #111418 40%, #090b0f 100%);
+            color: #f5f7fb;
             min-height: 100vh;
             padding: 2rem;
         }
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            background: rgba(35, 39, 42, 0.92);
-            border-radius: 18px;
-            padding: 2rem;
-            box-shadow: 0 4px 32px rgba(97, 218, 251, 0.067);
+        .container { max-width: 1200px; margin: 0 auto; }
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: #9fb5ff;
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+        .hero {
+            background: rgba(37, 46, 63, 0.55);
+            border: 1px solid rgba(159, 181, 255, 0.25);
+            border-radius: 24px;
+            padding: 2.5rem;
+            box-shadow: 0 25px 60px rgba(3, 6, 20, 0.6);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 30% 20%, rgba(159,181,255,0.35), transparent 45%);
+            pointer-events: none;
         }
         h1 {
-            color: #61dafb;
-            font-size: 2.5rem;
+            font-size: clamp(2.8rem, 4vw, 3.6rem);
             margin-bottom: 1rem;
-            text-align: center;
         }
-        .back-btn {
-            background: linear-gradient(90deg, #61dafb 0%, #a1c4fd 100%);
-            color: #23272a;
-            padding: 0.5rem 1.5rem;
-            text-decoration: none;
-            border-radius: 6px;
-            font-weight: 600;
-            display: inline-block;
-            margin-bottom: 2rem;
-        }
-        .back-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 16px rgba(97, 218, 251, 0.3);
-        }
-        p {
+        .tagline {
+            color: #cfd8ff;
             font-size: 1.1rem;
-            color: #e0e0e0;
             line-height: 1.6;
-            text-align: center;
+            max-width: 780px;
+        }
+        .project-card {
+            margin-top: 3rem;
+            background: rgba(20, 24, 34, 0.9);
+            border-radius: 20px;
+            border: 1px solid rgba(72, 125, 255, 0.25);
+            padding: 2rem;
+            box-shadow: 0 20px 50px rgba(5, 8, 20, 0.55);
+        }
+        .project-header {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .project-header h2 {
+            font-size: 2.1rem;
+        }
+        .project-meta {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .pill {
+            padding: 0.4rem 1rem;
+            border-radius: 999px;
+            background: rgba(79, 173, 255, 0.12);
+            border: 1px solid rgba(79, 173, 255, 0.25);
+            color: #9fd5ff;
+            font-size: 0.9rem;
+        }
+        .project-body {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        .project-body section {
+            background: rgba(8, 11, 19, 0.65);
+            border: 1px solid rgba(159, 181, 255, 0.15);
+            border-radius: 16px;
+            padding: 1.5rem;
+        }
+        section h3 {
+            margin-bottom: 0.8rem;
+            color: #9cc6ff;
+            font-size: 1.2rem;
+        }
+        p, li {
+            line-height: 1.6;
+            color: #dbe6ff;
+        }
+        ul { padding-left: 1.2rem; }
+        .video-grid {
+            margin-top: 2.5rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.8rem;
+        }
+        .video-card {
+            background: rgba(11, 14, 22, 0.85);
+            border: 1px solid rgba(90, 110, 170, 0.35);
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 18px 40px rgba(5, 8, 20, 0.5);
+        }
+        .video-card iframe {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            border: none;
+        }
+        .video-card .label {
+            padding: 1.2rem 1.5rem;
+            border-top: 1px solid rgba(90, 110, 170, 0.2);
+        }
+        .video-card strong {
+            font-size: 1.05rem;
+        }
+        .video-card span {
+            display: block;
+            margin-top: 0.4rem;
+            color: #93a2ca;
+            font-size: 0.95rem;
+        }
+        @media (max-width: 640px) {
+            body { padding: 1.25rem; }
+            .project-body { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <a href="index.html" class="back-btn">← Back to Home</a>
-        <h1>Unity Engine</h1>
-        <p>Display your Unity Engine projects. Add screenshots, demos, and project details.</p>
+
+        <header class="hero">
+            <h1>Unity Engine Projects</h1>
+            <p class="tagline">
+                Showcasing original Unity games, prototypes, and experimental systems that explore gameplay,
+                level design, and immersive mechanics. Each project demonstrates iteration, polish, and
+                production-level presentation.
+            </p>
+        </header>
+
+        <article class="project-card">
+            <div class="project-header">
+                <h2>Project One · Tactical Platformer</h2>
+                <div class="project-meta">
+                    <span class="pill">C# Gameplay Systems</span>
+                    <span class="pill">Physics-based Combat</span>
+                    <span class="pill">PC Build</span>
+                </div>
+            </div>
+
+            <div class="project-body">
+                <section>
+                    <h3>Overview</h3>
+                    <p>
+                        A vertical-slice platformer featuring modular enemy AI, physics-driven combat, dynamic level scripting,
+                        and scalable UI. This project evolved from a semi-complete prototype into a polished final release
+                        with revised visuals, responsiveness, and progression.
+                    </p>
+                </section>
+                <section>
+                    <h3>Core Pillars</h3>
+                    <ul>
+                        <li>Layered movement system with chaining abilities.</li>
+                        <li>Dynamic hazard logic and destructible objects.</li>
+                        <li>Modular encounter scripting for replayability.</li>
+                    </ul>
+                </section>
+                <section>
+                    <h3>Tech Highlights</h3>
+                    <ul>
+                        <li>State-machine driven enemy AI with blend-tree animations.</li>
+                        <li>Editor tooling for level sequencing and checkpoint control.</li>
+                        <li>Centralized event bus for UI, audio, and gameplay hooks.</li>
+                    </ul>
+                </section>
+            </div>
+
+            <div class="video-grid">
+                <div class="video-card">
+                    <iframe src="https://youtu.be/3lpAPTwJCt0" allowfullscreen></iframe>
+                    <div class="label">
+                        <strong>Semi-complete Gameplay Demo</strong>
+                        <span>Captures the initial mechanics, traversal flow, and combat pass.</span>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <iframe src="https://youtu.be/vPRzj38azmo" allowfullscreen></iframe>
+                    <div class="label">
+                        <strong>Final Release Showcase</strong>
+                        <span>Highlights the revised visuals, polished UX, and final balancing.</span>
+                    </div>
+                </div>
+            </div>
+        </article>
     </div>
 </body>
 </html>
