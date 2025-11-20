@@ -47,13 +47,68 @@
             line-height: 1.6;
             text-align: center;
         }
+        .plugin-section {
+            margin-top: 2.5rem;
+        }
+        .plugin-section h2 {
+            font-size: 1.9rem;
+            margin-bottom: 0.75rem;
+            text-align: center;
+        }
+        .plugin-section p {
+            margin-bottom: 1rem;
+        }
+        .details-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 auto 1.5rem;
+            max-width: 720px;
+            color: #cfd8dc;
+        }
+        .details-list li {
+            padding: 0.35rem 0;
+            text-align: center;
+        }
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+        }
+        .video-wrapper video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+            background: #000;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <a href="index.html" class="back-btn">← Back to Home</a>
         <h1>Garry's Mod</h1>
-        <p>Showcase your Garry's Mod creations here. Add images, videos, and descriptions of your work.</p>
+        <section class="plugin-section" aria-label="Combine HUD bootup plugin">
+            <h2>Combine HUD Bootup Plugin</h2>
+            <p>This Helix framework plugin delivers an immersive boot sequence for Combine players, complete with audio stingers, interference effects, and staged HUD activation.</p>
+            <ul class="details-list">
+                <li>Triggers automatically on first character load or after connecting to a server.</li>
+                <li>Repeats on each fresh session or rejoin to reinforce Combine identity.</li>
+                <li>Includes bespoke audio cues and visual interference synced to the boot timeline.</li>
+                <li>HUD elements intentionally stay disabled until the sequence completes for dramatic reveal.</li>
+            </ul>
+            <div class="video-wrapper">
+                <video controls preload="metadata" poster="assets/videos/combine-bootup-poster.png">
+                    <source src="assets/videos/combineboot.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <p style="margin-top:0.75rem; font-size:0.95rem; color:#9fb3c8;">Place your .mp4 inside <code>assets/videos/</code> (e.g., <code>assets/videos/combine-bootup.mp4</code>) so it plays here.</p>
+        </section>
     </div>
 </body>
 </html>
