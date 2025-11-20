@@ -197,7 +197,24 @@
             height: 100%;
             border: 0;
         }
+        .iframe-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+            background: #000;
+            margin-bottom: 1rem;
+        }
+        .iframe-wrapper iframe {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
         .media,
+        .teleporter,
         .callout {
             grid-column: span 2;
             border: 1px solid rgba(97, 218, 251, 0.25);
@@ -211,6 +228,7 @@
         @media (max-width: 900px) {
             .overview,
             .media,
+            .teleporter,
             .callout {
                 grid-column: span 1;
             }
@@ -300,7 +318,6 @@
                         Your browser does not support the video tag.
                     </video>
                 </div>
-                <p style="margin-top:0.75rem; color:#98b4d3; font-size:0.95rem;">Hosted locally in <code>assets/videos/combineboot.mp4</code>.</p>
             </section>
 
             <section class="card">
@@ -313,8 +330,20 @@
                 </ul>
             </section>
 
-            <section class="card callout">
-                <p><strong>Created for Project Warfront</strong></p>
+            <section class="card teleporter" aria-label="Resistance teleporter showcase">
+                <h3>Resistance Teleporter Construction Entity</h3>
+                <p>This short-range teleporter brings Project Warfront's resistance engineering fantasy to life. Players can deploy the entity, designate any safe coordinate on the map, and watch as multiple allies, props, or even vehicles phase through a bespoke particle tunnel to the destination.</p>
+                <div class="iframe-wrapper">
+                    <iframe src="https://www.youtube.com/embed/enDZDMiyvqg" title="Resistance Teleporter Showcase" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <ul class="detail-list">
+                    <li>Fully animated, interactable control console lets players select any in-bounds coordinate.</li>
+                    <li>Supports batching multiple players, physics entities, props, and vehicles through the same jump.</li>
+                    <li>Destination zone displays a high-energy orb so defenders know an arrival is imminent.</li>
+                    <li>Unique particle layers and light surges fire throughout the teleportation window.</li>
+                    <li>Terrain validation cancels requests that would place users outside navigable space.</li>
+                    <li>Ships as a resistance-only construction option, balancing the Combine HUD feature set.</li>
+                </ul>
             </section>
         </main>
     </div>
