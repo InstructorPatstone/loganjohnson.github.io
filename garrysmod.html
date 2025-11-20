@@ -8,107 +8,314 @@
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #181a1b 0%, #23272a 100%);
-            color: #f3f3f3;
+            background: radial-gradient(circle at 15% 20%, rgba(97, 218, 251, 0.12), transparent 45%),
+                        radial-gradient(circle at 80% 0%, rgba(161, 196, 253, 0.08), transparent 55%),
+                        linear-gradient(135deg, #0f1418 0%, #10161c 50%, #151b22 100%);
+            color: #f5f7fb;
             min-height: 100vh;
-            padding: 2rem;
+            padding: 2.5rem 1.5rem 3.5rem;
         }
-        .container {
-            max-width: 900px;
+        .page-shell {
+            max-width: 1150px;
             margin: 0 auto;
-            background: rgba(35, 39, 42, 0.92);
-            border-radius: 18px;
-            padding: 2rem;
-            box-shadow: 0 4px 32px rgba(97, 218, 251, 0.067);
+        }
+        .hero {
+            background: rgba(19, 23, 29, 0.85);
+            border: 1px solid rgba(97, 218, 251, 0.2);
+            border-radius: 22px;
+            padding: 2.5rem;
+            box-shadow: 0 25px 60px rgba(2, 11, 22, 0.45);
+            backdrop-filter: blur(18px);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: -80px;
+            right: -40px;
+            width: 320px;
+            height: 320px;
+            background: radial-gradient(circle, rgba(97, 218, 251, 0.18), transparent 60%);
+            filter: blur(15px);
+        }
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        .eyebrow {
+            text-transform: uppercase;
+            letter-spacing: 0.4rem;
+            font-size: 0.75rem;
+            color: #8fd2f6;
+            margin-bottom: 0.8rem;
         }
         h1 {
-            color: #61dafb;
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            text-align: center;
+            font-size: 3rem;
+            color: #e7f7ff;
+            margin-bottom: 0.5rem;
+        }
+        .lead {
+            font-size: 1.2rem;
+            color: #cfd8e3;
+            line-height: 1.7;
+            max-width: 720px;
+            margin-bottom: 1.5rem;
+        }
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+        }
+        .stat-card {
+            border: 1px solid rgba(97, 218, 251, 0.25);
+            border-radius: 14px;
+            padding: 1rem 1.25rem;
+            background: rgba(12, 17, 24, 0.9);
+        }
+        .stat-label {
+            font-size: 0.8rem;
+            letter-spacing: 0.08rem;
+            color: #8ca7c4;
+            text-transform: uppercase;
+        }
+        .stat-value {
+            font-size: 1.15rem;
+            color: #f0f8ff;
+            font-weight: 600;
         }
         .back-btn {
-            background: linear-gradient(90deg, #61dafb 0%, #a1c4fd 100%);
-            color: #23272a;
-            padding: 0.5rem 1.5rem;
-            text-decoration: none;
-            border-radius: 6px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: #08121c;
+            background: linear-gradient(120deg, #61dafb 0%, #a1c4fd 100%);
+            padding: 0.55rem 1.4rem;
+            border-radius: 999px;
             font-weight: 600;
-            display: inline-block;
-            margin-bottom: 2rem;
+            text-decoration: none;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 14px 30px rgba(97, 218, 251, 0.25);
         }
-        .back-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 16px rgba(97, 218, 251, 0.3);
-        }
-        p {
-            font-size: 1.1rem;
-            color: #e0e0e0;
-            line-height: 1.6;
-            text-align: center;
-        }
-        .plugin-section {
+        .back-btn:hover { transform: translateY(-2px); }
+        .content-grid {
             margin-top: 2.5rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
         }
-        .plugin-section h2 {
-            font-size: 1.9rem;
-            margin-bottom: 0.75rem;
-            text-align: center;
+        .card {
+            background: rgba(17, 22, 29, 0.92);
+            border: 1px solid rgba(97, 218, 251, 0.12);
+            border-radius: 18px;
+            padding: 1.8rem;
+            box-shadow: 0 18px 40px rgba(3, 7, 12, 0.45);
         }
-        .plugin-section p {
+        .card h2,
+        .card h3 {
+            color: #7fd4ff;
+            font-size: 1.4rem;
             margin-bottom: 1rem;
         }
-        .details-list {
-            list-style: none;
-            padding: 0;
-            margin: 0 auto 1.5rem;
-            max-width: 720px;
-            color: #cfd8dc;
+        .card p,
+        .card li {
+            color: #c9d7e5;
+            line-height: 1.7;
+            font-size: 1rem;
         }
-        .details-list li {
-            padding: 0.35rem 0;
-            text-align: center;
+        .overview {
+            grid-column: span 2;
+        }
+        .pill-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-top: 1rem;
+        }
+        .pill {
+            padding: 0.35rem 0.9rem;
+            border-radius: 999px;
+            border: 1px solid rgba(97, 218, 251, 0.4);
+            font-size: 0.85rem;
+            color: #9fd8ff;
+            background: rgba(97, 218, 251, 0.08);
+        }
+        .detail-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        .detail-list li + li {
+            margin-top: 0.7rem;
+        }
+        .timeline-list {
+            counter-reset: step;
+            list-style: none;
+            padding-left: 0;
+        }
+        .timeline-list li {
+            padding-left: 2.4rem;
+            position: relative;
+        }
+        .timeline-list li + li {
+            margin-top: 1rem;
+        }
+        .timeline-list li::before {
+            counter-increment: step;
+            content: counter(step);
+            position: absolute;
+            left: 0;
+            top: 0.15rem;
+            width: 1.6rem;
+            height: 1.6rem;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #61dafb, #598dff);
+            color: #0b1017;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 6px 18px rgba(97, 218, 251, 0.3);
+        }
+        .timeline-list span {
+            display: block;
+            font-weight: 600;
+            color: #e5f4ff;
+            margin-bottom: 0.25rem;
         }
         .video-wrapper {
             position: relative;
             padding-bottom: 56.25%;
-            height: 0;
+            border-radius: 16px;
             overflow: hidden;
-            border-radius: 12px;
-            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+            background: #000;
         }
         .video-wrapper video {
             position: absolute;
-            top: 0;
-            left: 0;
+            inset: 0;
             width: 100%;
             height: 100%;
             border: 0;
-            background: #000;
+        }
+        .callout {
+            grid-column: span 2;
+            border: 1px solid rgba(97, 218, 251, 0.25);
+            background: linear-gradient(135deg, rgba(97, 218, 251, 0.1), rgba(13, 18, 26, 0.95));
+        }
+        .callout p {
+            font-size: 1.05rem;
+            margin-bottom: 0.5rem;
+        }
+        .callout strong { color: #f6fbff; }
+        @media (max-width: 900px) {
+            .overview,
+            .callout {
+                grid-column: span 1;
+            }
+        }
+        @media (max-width: 600px) {
+            body { padding: 1.5rem; }
+            .hero { padding: 1.8rem; }
+            h1 { font-size: 2.2rem; }
+            .content-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <a href="index.html" class="back-btn">← Back to Home</a>
-        <h1>Garry's Mod</h1>
-        <section class="plugin-section" aria-label="Combine HUD bootup plugin">
-            <h2>Combine HUD Bootup Plugin</h2>
-            <p>This Helix framework plugin delivers an immersive boot sequence for Combine players, complete with audio stingers, interference effects, and staged HUD activation.</p>
-            <ul class="details-list">
-                <li>Triggers automatically on first character load or after connecting to a server.</li>
-                <li>Repeats on each fresh session or rejoin to reinforce Combine identity.</li>
-                <li>Includes bespoke audio cues and visual interference synced to the boot timeline.</li>
-                <li>HUD elements intentionally stay disabled until the sequence completes for dramatic reveal.</li>
-            </ul>
-            <div class="video-wrapper">
-                <video controls preload="metadata" poster="assets/videos/combine-bootup-poster.png">
-                    <source src="assets/videos/combineboot.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
+    <div class="page-shell">
+        <header class="hero" aria-label="Garry's Mod plugin overview">
+            <div class="hero-content">
+                <a href="index.html" class="back-btn">← Back to Home</a>
+                <div class="eyebrow">Helix Framework Plugin</div>
+                <h1>Combine Command HUD Bootup</h1>
+                <p class="lead">Cinematic onboarding sequence that reinforces Combine identity through bespoke UI choreography, responsive audio, and delayed HUD activation until systems are verified.</p>
+                <div class="hero-stats">
+                    <div class="stat-card">
+                        <div class="stat-label">Scope</div>
+                        <div class="stat-value">Player UX + Audio</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Tech Stack</div>
+                        <div class="stat-value">Lua · Helix</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Status</div>
+                        <div class="stat-value">Production Ready</div>
+                    </div>
+                </div>
             </div>
-            <p style="margin-top:0.75rem; font-size:0.95rem; color:#9fb3c8;">Place your .mp4 inside <code>assets/videos/</code> (e.g., <code>assets/videos/combine-bootup.mp4</code>) so it plays here.</p>
-        </section>
+        </header>
+
+        <main class="content-grid">
+            <section class="card overview">
+                <h2>Project Snapshot</h2>
+                <p>The Combine HUD Bootup Plugin plays an in-universe startup ceremony when a Combine character loads in, setting the tone with interference, vocal confirmations, and staged UI reveals. It runs on first spawn, after reconnects, and any time a session is freshly initialized to keep immersion consistent.</p>
+                <div class="pill-row">
+                    <span class="pill">Session-aware triggering</span>
+                    <span class="pill">Custom audio suite</span>
+                    <span class="pill">HUD gating logic</span>
+                    <span class="pill">Project Warfront support</span>
+                </div>
+            </section>
+
+            <section class="card">
+                <h3>Player Experience Goals</h3>
+                <ul class="detail-list">
+                    <li>Create anticipation by delaying tactical HUD overlays until the "boot" completes.</li>
+                    <li>Use Combine-styled voice comms and tones so players instantly know their faction context.</li>
+                    <li>Keep the experience lightweight so it never blocks spawning beyond a few seconds.</li>
+                    <li>Ensure the sequence replays on reconnects without manual intervention.</li>
+                </ul>
+            </section>
+
+            <section class="card">
+                <h3>Boot Sequence Flow</h3>
+                <ol class="timeline-list">
+                    <li>
+                        <span>01 · Handshake</span>
+                        Authentication ping fires on first spawn or reconnect and locks HUD widgets.
+                    </li>
+                    <li>
+                        <span>02 · Audio + Visual FX</span>
+                        Layered static, servo chirps, and vignette pulses guide the player's attention.
+                    </li>
+                    <li>
+                        <span>03 · System Verification</span>
+                        Status text iterates through suit subsystems while gameplay input remains available.
+                    </li>
+                    <li>
+                        <span>04 · HUD Online</span>
+                        UI modules render once the timeline completes, accompanied by a confirmation sting.
+                    </li>
+                </ol>
+            </section>
+
+            <section class="card media" aria-label="Combine bootup video showcase">
+                <h3>Boot Sequence Capture</h3>
+                <div class="video-wrapper">
+                    <video controls preload="metadata" poster="assets/videos/combine-bootup-poster.png">
+                        <source src="assets/videos/combineboot.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <p style="margin-top:0.75rem; color:#98b4d3; font-size:0.95rem;">Hosted locally in <code>assets/videos/combineboot.mp4</code>.</p>
+            </section>
+
+            <section class="card">
+                <h3>Implementation Highlights</h3>
+                <ul class="detail-list">
+                    <li>Lua coroutines pace the sequence without blocking Helix hooks.</li>
+                    <li>Faction checks guarantee only Combine players trigger the cinematic layer.</li>
+                    <li>HUD elements register callbacks so widgets remain hidden until the final cue.</li>
+                    <li>Audio bus isolation prevents other ambience from competing with the bootup sting.</li>
+                </ul>
+            </section>
+
+            <section class="card callout">
+                <h3>Project Warfront Integration</h3>
+                <p><strong>Created for Project Warfront</strong> to keep high-command roles consistent with narrative tone. Easily portable to other Helix-based servers by dropping the script and media into your schema.</p>
+            </section>
+        </main>
     </div>
 </body>
 </html>
