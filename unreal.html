@@ -47,6 +47,33 @@
             line-height: 1.6;
             text-align: center;
         }
+        .video-section {
+            margin-top: 2.5rem;
+        }
+        .video-section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 0.75rem;
+            text-align: center;
+        }
+        .video-section p {
+            margin-bottom: 1.5rem;
+        }
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+        }
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
     </style>
 </head>
 <body>
@@ -54,6 +81,13 @@
         <a href="index.html" class="back-btn">← Back to Home</a>
         <h1>Unreal Engine 5</h1>
         <p>Present your Unreal Engine 5 creations. Share videos, images, and technical breakdowns.</p>
+        <section class="video-section" aria-label="UE5 maze level video showcase">
+            <h2>UE5 Maze Level Walkthrough</h2>
+            <p>Check out my first Unreal Engine 5 environment built for a cooperative maze experience.</p>
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/VItFyh-VSXs" title="UE5 Maze Level by Logan Johnson" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </section>
     </div>
 </body>
 </html>
