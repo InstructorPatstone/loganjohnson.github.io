@@ -231,6 +231,7 @@
         .media,
         .teleporter,
         .lvs,
+        .manhack,
         .callout {
             grid-column: span 2;
             border: 1px solid rgba(97, 218, 251, 0.25);
@@ -246,6 +247,7 @@
             .media,
             .teleporter,
             .lvs,
+            .manhack,
             .callout {
                 grid-column: span 1;
             }
@@ -346,7 +348,7 @@
                                 Your browser does not support the video tag.
                             </video>
                         </div>
-                        <p class="video-caption">Overwatch class variant showcasing alternate UX, bespoke glyphs, and role-specific telemetry.</p>
+                        <p class="video-caption">Overwatch class variant showcasing alternate UX, role-specific information and visuals.</p>
                     </div>
                 </div>
             </section>
@@ -389,6 +391,21 @@
                     <li>Extended LVS to respect Helix animation states so the pilot playermodel sits correctly without snapping or T-posing.</li>
                     <li>Helix support hooks keep the cockpit camera, UI, and faction permissions synchronized during seat swaps.</li>
                     <li>Reactive elements highlight throttle, yaw, and weapon state, giving real-time feedback in the HUD.</li>
+                </ul>
+            </section>
+
+            <section class="card manhack" aria-label="Improved deployable manhack showcase">
+                <h3>Improved Deployable Manhack</h3>
+                <p>A tactical Helix inventory item that spawns a loyal manhack companion on demand. The drone shadows its owner, intercepts nearby hostiles, and intelligently returns to formation once the threat is cleared, all while respecting faction relationships.</p>
+                <div class="iframe-wrapper">
+                    <iframe src="https://www.youtube.com/embed/UFUxYIpjfTI" title="Improved Deployable Manhack Showcase" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <ul class="detail-list">
+                    <li>Deploy action spawns the manhack at the player’s position and begins a throttled follow loop for performance.</li>
+                    <li>When a valid enemy enters range, the drone breaks formation, attacks, then reacquires its owner after the kill.</li>
+                    <li>Self-destruct safeguards trigger on player death or character swap to prevent orphaned NPCs.</li>
+                    <li>No-collide filters keep the manhack from damaging its owner or same-faction allies in close quarters.</li>
+                    <li>Advanced Helix relationship tables ensure it exclusively targets opposing players/NPCs.</li>
                 </ul>
             </section>
         </main>
