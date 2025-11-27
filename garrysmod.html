@@ -197,6 +197,21 @@
             height: 100%;
             border: 0;
         }
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.25rem;
+        }
+        .video-card {
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+        .video-caption {
+            font-size: 0.95rem;
+            color: #98b4d3;
+            text-align: center;
+        }
         .iframe-wrapper {
             position: relative;
             padding-bottom: 56.25%;
@@ -248,9 +263,9 @@
         <header class="hero" aria-label="Garry's Mod plugin overview">
             <div class="hero-content">
                 <a href="index.html" class="back-btn">← Back to Home</a>
-                <div class="eyebrow">Helix Framework Plugin</div>
-                <h1>Combine Command HUD Bootup</h1>
-                <p class="lead">Cinematic boot sequence that reinforces Combine identity through UI choreography, responsive audio, and delayed HUD activation until systems are verified.</p>
+                <div class="eyebrow">Helix Framework Portfolio</div>
+                <h1>Garry's Mod Projects</h1>
+                <p class="lead">Curated Project Warfront modules ranging from Combine onboarding tech to resistance engineering feats, each blending narrative-driven UX, custom audio, and Helix-friendly integrations.</p>
                 <div class="hero-stats">
                     <div class="stat-card">
                         <div class="stat-label">Scope</div>
@@ -270,7 +285,7 @@
 
         <main class="content-grid">
             <section class="card overview">
-                <h2>Project Snapshot</h2>
+                <h2>Combine HUD Bootup</h2>
                 <p>The Combine HUD Bootup Plugin plays an in-universe startup ceremony when a Combine character loads in, setting the tone with interference, vocal confirmations, and staged UI reveals. It runs on first spawn, after reconnects, and any time a session is freshly initialized to keep immersion consistent.</p>
                 <div class="pill-row">
                     <span class="pill">Session-aware triggering</span>
@@ -313,12 +328,26 @@
             </section>
 
             <section class="card media" aria-label="Combine bootup video showcase">
-                <h3>Boot Sequence Capture</h3>
-                <div class="video-wrapper">
-                    <video controls preload="metadata" poster="assets/videos/combine-bootup-poster.png">
-                        <source src="assets/videos/combineboot.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
+                <h3>Boot Sequence Captures</h3>
+                <div class="video-grid">
+                    <div class="video-card">
+                        <div class="video-wrapper">
+                            <video controls preload="metadata" poster="assets/videos/combine-bootup-poster.png">
+                                <source src="assets/videos/combineboot.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <p class="video-caption">Command HUD boot for frontline Combine soldiers with staged subsystem bring-up.</p>
+                    </div>
+                    <div class="video-card">
+                        <div class="video-wrapper">
+                            <video controls preload="metadata">
+                                <source src="assets/videos/overwatchboot.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <p class="video-caption">Overwatch class variant showcasing alternate UX, bespoke glyphs, and role-specific telemetry.</p>
+                    </div>
                 </div>
             </section>
 
@@ -350,13 +379,13 @@
 
             <section class="card lvs" aria-label="Helix support for LVS Hunter-Chopper">
                 <h3>Helix ↔ LVS Hunter-Chopper Overhaul</h3>
-                <p>Built a custom integration layer between the Helix framework and LVS so resistance pilots can field the Hunter-Chopper with fully reactive Combine UI, cockpit-ready animations, and an audio suite crafted from scratch.</p>
+                <p>Built a custom integration layer between the Helix framework and LVS so pilots can field the Hunter-Chopper with fully reactive Combine UI, cockpit-ready animations, and an audio suite crafted from scratch.</p>
                 <div class="iframe-wrapper">
                     <iframe src="https://www.youtube.com/embed/tm8P_I7D36M" title="Helix LVS Hunter-Chopper Showcase" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
                 <ul class="detail-list">
                     <li>Overhauled crosshair HUD with Combine styling, dynamic reticles, and charge indicators that pulse with player input.</li>
-                    <li>Engine startup, rotor wash, flight loops, and main gun charge all use bespoke audio to match the faction fiction.</li>
+                    <li>Engine startup, rotor wash, flight loops, and main gun charge all use audio to match the faction fiction.</li>
                     <li>Extended LVS to respect Helix animation states so the pilot playermodel sits correctly without snapping or T-posing.</li>
                     <li>Helix support hooks keep the cockpit camera, UI, and faction permissions synchronized during seat swaps.</li>
                     <li>Reactive elements highlight throttle, yaw, and weapon state, giving real-time feedback in the HUD.</li>
