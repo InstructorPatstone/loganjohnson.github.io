@@ -215,6 +215,7 @@
         }
         .media,
         .teleporter,
+        .lvs,
         .callout {
             grid-column: span 2;
             border: 1px solid rgba(97, 218, 251, 0.25);
@@ -229,6 +230,7 @@
             .overview,
             .media,
             .teleporter,
+            .lvs,
             .callout {
                 grid-column: span 1;
             }
@@ -343,6 +345,21 @@
                     <li>Unique particle layers and light surges fire throughout the teleportation window.</li>
                     <li>Terrain validation cancels requests that would place users outside navigable space.</li>
                     <li>Ships as a resistance-only construction option, balancing the Combine HUD feature set.</li>
+                </ul>
+            </section>
+
+            <section class="card lvs" aria-label="Helix support for LVS Hunter-Chopper">
+                <h3>Helix ↔ LVS Hunter-Chopper Overhaul</h3>
+                <p>Built a custom integration layer between the Helix framework and LVS so resistance pilots can field the Hunter-Chopper with fully reactive Combine UI, cockpit-ready animations, and an audio suite crafted from scratch.</p>
+                <div class="iframe-wrapper">
+                    <iframe src="https://www.youtube.com/embed/tm8P_I7D36M" title="Helix LVS Hunter-Chopper Showcase" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <ul class="detail-list">
+                    <li>Overhauled crosshair HUD with Combine styling, dynamic reticles, and charge indicators that pulse with player input.</li>
+                    <li>Engine startup, rotor wash, flight loops, and main gun charge all use bespoke audio to match the faction fiction.</li>
+                    <li>Extended LVS to respect Helix animation states so the pilot playermodel sits correctly without snapping or T-posing.</li>
+                    <li>Helix support hooks keep the cockpit camera, UI, and faction permissions synchronized during seat swaps.</li>
+                    <li>Reactive elements highlight throttle, yaw, and weapon state, giving real-time feedback in the HUD.</li>
                 </ul>
             </section>
         </main>
