@@ -63,7 +63,7 @@
         }
 
         .header {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto 3rem auto;
             position: relative;
         }
@@ -89,7 +89,7 @@
 
         .hero-video {
             position: relative;
-            max-width: 1100px;
+            max-width: 1400px;
             margin: 0 auto 2.5rem auto;
             border-radius: 18px;
             overflow: hidden;
@@ -106,32 +106,60 @@
             object-fit: cover;
         }
 
-        .hero-video .beta-overlay {
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
+        .primary-trailers {
             display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            align-items: center;
-            padding: 1.75rem;
-            font-size: 2rem;
-            letter-spacing: 0.4rem;
-            color: rgba(255, 255, 255, 0.9);
-            text-transform: uppercase;
-            font-weight: 700;
-            background: linear-gradient(180deg, rgba(4, 7, 9, 0) 10%, rgba(4, 7, 9, 0.65) 85%);
-            text-shadow: 0 8px 24px rgba(0, 0, 0, 0.9);
-            pointer-events: none;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            max-width: 1400px;
+            margin: 0 auto 3rem auto;
         }
 
-        .hero-video .beta-overlay span {
-            padding: 0.75rem 1.5rem;
-            border: 2px solid rgba(97, 218, 251, 0.7);
-            border-radius: 999px;
-            backdrop-filter: blur(3px);
+        .trailer-card {
+            flex: 1 1 320px;
+            background: rgba(35, 39, 42, 0.75);
+            border: 1px solid rgba(97, 218, 251, 0.2);
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+            backdrop-filter: blur(10px);
+        }
+
+        .trailer-label {
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 0.3rem;
+            color: #8fd2f6;
+            margin-bottom: 0.8rem;
+        }
+
+        .trailer-title {
+            font-size: 1.2rem;
+            color: #e4f6ff;
+            margin-bottom: 0.75rem;
+        }
+
+        .trailer-frame {
+            position: relative;
+            padding-bottom: 56.25%;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(97, 218, 251, 0.25);
+            box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.45);
+            margin-bottom: 0.9rem;
+        }
+
+        .trailer-frame iframe {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .trailer-caption {
+            font-size: 0.95rem;
+            color: #a8c7dc;
+            line-height: 1.5;
         }
 
         @keyframes slideDown {
@@ -161,7 +189,7 @@
         }
 
         .main-container {
-            max-width: 1100px;
+            max-width: 1600px;
             margin: 0 auto;
         }
 
@@ -227,7 +255,6 @@
         .feature-card:nth-child(3) { animation-delay: 0.5s; }
         .feature-card:nth-child(4) { animation-delay: 0.6s; }
         .feature-card:nth-child(5) { animation-delay: 0.7s; }
-        .feature-card:nth-child(6) { animation-delay: 0.8s; }
 
         .feature-card::before {
             content: '';
@@ -337,41 +364,6 @@
             border-radius: 2px;
         }
 
-        .content-area {
-            background: rgba(24, 26, 27, 0.4);
-            border-radius: 12px;
-            padding: 2rem;
-            margin-bottom: 1.5rem;
-            border: 1px solid rgba(97, 218, 251, 0.1);
-            min-height: 250px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        @keyframes shimmer {
-            0%, 100% { opacity: 0; }
-            50% { opacity: 1; }
-        }
-
-        .placeholder-text {
-            color: #61dafb;
-            font-size: 1rem;
-            text-align: center;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            position: relative;
-            z-index: 1;
-        }
-
-        /* YouTube iframe styling */
-        .content-area iframe {
-            border-radius: 8px;
-            box-shadow: 0 4px 20px rgba(97, 218, 251, 0.15);
-        }
-
         .description {
             color: #c8c8c8;
             font-size: 1rem;
@@ -379,6 +371,170 @@
             margin-bottom: 1rem;
             position: relative;
             z-index: 1;
+        }
+
+        .dev-showcase {
+            display: flex;
+            gap: 1.75rem;
+            background: rgba(24, 26, 27, 0.55);
+            border: 1px solid rgba(97, 218, 251, 0.1);
+            border-radius: 14px;
+            padding: 1.75rem;
+            flex-wrap: wrap;
+        }
+
+        .dev-showcase-media {
+            flex: 1 1 320px;
+            border-radius: 12px;
+            overflow: hidden;
+            background: #040709;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+        }
+
+        .dev-showcase video {
+            display: block;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .showcase-copy {
+            flex: 1 1 280px;
+        }
+
+        .ui-media-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin-top: 1.75rem;
+        }
+
+        .ui-media-block {
+            background: rgba(17, 20, 24, 0.85);
+            border: 1px solid rgba(97, 218, 251, 0.12);
+            border-radius: 14px;
+            padding: 1.5rem;
+            box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.35);
+        }
+
+        .ui-media-block--static {
+            text-align: center;
+        }
+
+        .ui-media-block h4 {
+            font-size: 1.1rem;
+            color: #e6f5ff;
+            margin-bottom: 0.6rem;
+            letter-spacing: 0.6px;
+        }
+
+        .ui-media-block p {
+            color: #aebccc;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .media-row {
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .media-row-static {
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .media-row-static .media-tile {
+            width: min(85vw, 1100px);
+            max-width: 100%;
+            padding: 0;
+            border: none;
+            background: transparent;
+        }
+
+        .media-row-static .media-tile img {
+            width: 100%;
+            height: auto;
+            aspect-ratio: auto;
+            border-radius: 20px;
+            display: block;
+            border: 2px solid rgba(97, 218, 251, 0.4);
+            box-shadow: 0 20px 50px rgba(17, 36, 49, 0.45);
+        }
+
+        .media-stack {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .media-stack figure {
+            margin: 0;
+        }
+
+        .media-tile {
+            flex: 0 1 720px;
+            background: rgba(5, 8, 12, 0.94);
+            border-radius: 20px;
+            padding: 1.4rem;
+            border: 1px solid rgba(97, 218, 251, 0.35);
+            text-align: center;
+            max-width: 900px;
+        }
+
+        .media-tile img,
+        .media-tile video {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            border-radius: 16px;
+            object-fit: cover;
+            display: block;
+            background: #000;
+        }
+
+        .media-caption {
+            margin-top: 0.5rem;
+            font-size: 0.8rem;
+            letter-spacing: 0.1rem;
+            text-transform: uppercase;
+            color: #7fbad7;
+        }
+
+        .media-caption--top {
+            margin-bottom: 0.5rem;
+            margin-top: 0;
+        }
+
+        .ui-divider {
+            width: 140px;
+            height: 2px;
+            margin: 1rem auto 0 auto;
+            background: linear-gradient(90deg, rgba(97, 218, 251, 0), rgba(97, 218, 251, 0.6), rgba(97, 218, 251, 0));
+            opacity: 0.6;
+        }
+
+        @media (max-width: 1200px) {
+            .media-row {
+                flex-wrap: wrap;
+            }
+
+            .media-tile {
+                flex-basis: min(560px, 100%);
+                max-width: 100%;
+            }
+
+            .media-row-static {
+                flex-direction: column;
+            }
+
+            .media-row-static .media-tile {
+                width: min(680px, 100%);
+            }
         }
 
         .bullet-list {
@@ -417,6 +573,10 @@
                 min-height: 240px;
             }
 
+            .primary-trailers {
+                flex-direction: column;
+            }
+
             h1 {
                 font-size: 2.2rem;
             }
@@ -426,18 +586,21 @@
                 padding: 1.5rem;
             }
 
-            .hero-video .beta-overlay {
-                font-size: 1.2rem;
-                letter-spacing: 0.2rem;
-                padding: 1rem;
-            }
-
             .feature-grid {
                 grid-template-columns: 1fr;
             }
 
-            .content-area {
-                min-height: 200px;
+            .dev-showcase {
+                padding: 1.25rem;
+            }
+
+            .media-tile {
+                flex-basis: min(460px, 100%);
+                padding: 1rem;
+            }
+
+            .media-row-static .media-tile {
+                width: 100%;
             }
         }
     </style>
@@ -457,8 +620,34 @@
             <source src="assets/videos/websitebackground.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
-        <div class="beta-overlay"><span>Beta Footage</span></div>
     </div>
+
+    <section class="primary-trailers" aria-label="Project Warfront cinematic trailers">
+        <article class="trailer-card">
+            <p class="trailer-label">Signature Trailer</p>
+            <h2 class="trailer-title">Systems Showcase</h2>
+            <div class="trailer-frame">
+                <iframe src="https://www.youtube.com/embed/oFi-AaB6CfE" title="Project Warfront Systems Trailer" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <p class="trailer-caption">High-level look at the construction flow, player roles, and how the sandbox escalates as teams expand their frontlines.</p>
+        </article>
+        <article class="trailer-card">
+            <p class="trailer-label">Campaign Spotlight</p>
+            <h2 class="trailer-title">War Progression Briefing</h2>
+            <div class="trailer-frame">
+                <iframe src="https://www.youtube.com/embed/1Y5U6Gq9P9A" title="Project Warfront War Progression" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <p class="trailer-caption">Breakdown of the evolving match phases, objective hand-offs, and how we keep escalating tension for competing squads.</p>
+        </article>
+        <article class="trailer-card">
+            <p class="trailer-label">New Release</p>
+            <h2 class="trailer-title">Cremator Teaser</h2>
+            <div class="trailer-frame">
+                <iframe src="https://www.youtube.com/embed/K8Ek-QEqaYs" title="Project Warfront Cremator Teaser" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <p class="trailer-caption">First-look at the Cremator unit entering Warfront, highlighting bespoke animation, VFX, and counterplay hooks.</p>
+        </article>
+    </section>
 
     <div class="main-container">
         <!-- Overview Section -->
@@ -470,128 +659,226 @@
 
         <!-- Quick Features Overview -->
         <div class="feature-grid">
+            <a href="#ui-design" class="feature-card feature-card-link">
+                <div class="feature-card-icon">🖥️</div>
+                <h3>UI / HUD Design</h3>
+                <p>Faction-aware HUD suites with reactive telemetry and crisp combat readability.</p>
+            </a>
             <a href="#construction" class="feature-card feature-card-link">
                 <div class="feature-card-icon">🏗️</div>
                 <h3>Construction System</h3>
-                <p>Strategic base building with real-time placement and destruction mechanics</p>
+                <p>Deployables, fortifications, and logistics pipelines built in real-time mid-match.</p>
             </a>
-            <a href="#war-progression" class="feature-card feature-card-link">
-                <div class="feature-card-icon">⚔️</div>
-                <h3>War Progression</h3>
-                <p>Dynamic match progression system with escalating objectives</p>
+            <a href="#map-progression" class="feature-card feature-card-link">
+                <div class="feature-card-icon">🗺️</div>
+                <h3>Map Progression</h3>
+                <p>Dynamic macro layer that unlocks new fronts, spawns, and narrative cues.</p>
+            </a>
+            <a href="#revive-system" class="feature-card feature-card-link">
+                <div class="feature-card-icon">💉</div>
+                <h3>Revive System</h3>
+                <p>On-field triage mechanics that reward coordinated risk and positioning.</p>
             </a>
             <a href="#elite-units" class="feature-card feature-card-link">
                 <div class="feature-card-icon">👑</div>
                 <h3>Elite Units</h3>
-                <p>Specialized high-power units with unique abilities and mechanics</p>
-            </a>
-            <a href="#community" class="feature-card feature-card-link">
-                <div class="feature-card-icon">👥</div>
-                <h3>Community Tools</h3>
-                <p>Comprehensive community management features for clans and groups</p>
-            </a>
-            <a href="#progression" class="feature-card feature-card-link">
-                <div class="feature-card-icon">📊</div>
-                <h3>Progression System</h3>
-                <p>Deep progression mechanics with cosmetics and unlockables</p>
-            </a>
-            <a href="#roadblocks" class="feature-card feature-card-link">
-                <div class="feature-card-icon">🎮</div>
-                <h3>Game Systems</h3>
-                <p>Balanced multiplayer experience with team-based gameplay</p>
+                <p>Signature hero kits with bespoke abilities, audio, and counterplay hooks.</p>
             </a>
         </div>
 
         <!-- Detailed Sections -->
 
-        <!-- Construction System -->
+        <div class="category-section" id="ui-design">
+            <h3>UI Design</h3>
+            <div class="description">
+                The HUD is engineered to feel militaristic without sacrificing clarity. Every widget animates with purpose, surfacing squad health, resource income, and objective status through layered typography and Combine-inspired motion.
+            </div>
+            <div class="ui-media-grid">
+                <article class="ui-media-block ui-media-block--static" aria-label="Faction HUD layout callouts">
+                    <h4>Dual-Faction HUD Layouts</h4>
+                    <p>Static captures catalog every widget, from squad telemetry to directive feeds, so we can brief players on where to look regardless of faction.</p>
+                    <div class="ui-divider" aria-hidden="true"></div>
+                    <div class="media-row media-row-static">
+                        <div class="media-stack">
+                            <p class="media-caption media-caption--top">Resistance HUD</p>
+                            <figure class="media-tile">
+                                <img src="assets/videos/rebelhud.jpg" alt="Resistance HUD layout" loading="lazy">
+                            </figure>
+                        </div>
+                        <div class="media-stack">
+                            <p class="media-caption media-caption--top">MPF HUD</p>
+                            <figure class="media-tile">
+                                <img src="assets/videos/mpfhud.jpg" alt="Combine MPF HUD layout" loading="lazy">
+                            </figure>
+                        </div>
+                        <div class="media-stack">
+                            <p class="media-caption media-caption--top">OTA Elite HUD</p>
+                            <figure class="media-tile">
+                                <img src="assets/videos/otahud.jpg" alt="OTA elite HUD layout" loading="lazy">
+                            </figure>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="ui-media-block" aria-label="Directive and ammo counter demo">
+                    <h4>Directive & Ammo Feed</h4>
+                    <p>Looping captures show the live ammo counter shrinking and directive ribbons updating in real-time as players fire and receive squad orders.</p>
+                    <div class="media-row">
+                        <figure class="media-tile">
+                            <video autoplay loop muted playsinline preload="metadata">
+                                <source src="assets/videos/rebelhudshoot.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            <figcaption class="media-caption">Resistance Pulse</figcaption>
+                        </figure>
+                        <figure class="media-tile">
+                            <video autoplay loop muted playsinline preload="metadata">
+                                <source src="assets/videos/mpfhudshoot.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            <figcaption class="media-caption">Combine Pulse</figcaption>
+                        </figure>
+                    </div>
+                </article>
+
+                <article class="ui-media-block" aria-label="Armor depletion indicator">
+                    <h4>Armor Collapse Indicator</h4>
+                    <p>When armor hits zero, bespoke overlays flare to warn the player their next hit will start burning health. These loops mirror what ships in-game.</p>
+                    <div class="media-row">
+                        <figure class="media-tile">
+                            <video autoplay loop muted playsinline preload="metadata">
+                                <source src="assets/videos/rebelarmor.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            <figcaption class="media-caption">Resistance Break</figcaption>
+                        </figure>
+                        <figure class="media-tile">
+                            <video autoplay loop muted playsinline preload="metadata">
+                                <source src="assets/videos/mpfarmor.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            <figcaption class="media-caption">Combine Break</figcaption>
+                        </figure>
+                    </div>
+                </article>
+
+                <article class="ui-media-block" aria-label="Healing and armor gain feedback">
+                    <h4>Regeneration Feedback</h4>
+                    <p>Armor and health refills trigger layered sweeps, shader wipes, and light audio cues (muted here) that reassure players their support call landed.</p>
+                    <div class="media-row">
+                        <figure class="media-tile">
+                            <video autoplay loop muted playsinline preload="metadata">
+                                <source src="assets/videos/rebelheal.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            <figcaption class="media-caption">Resistance Boost</figcaption>
+                        </figure>
+                        <figure class="media-tile">
+                            <video autoplay loop muted playsinline preload="metadata">
+                                <source src="assets/videos/mpfheal.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            <figcaption class="media-caption">Combine Boost</figcaption>
+                        </figure>
+                    </div>
+                </article>
+            </div>
+        </div>
+
         <div class="category-section" id="construction">
             <h3>Construction System</h3>
             <div class="description">
-                The Construction System is the backbone of Project Warfront's strategic gameplay. It allows players to build defensive and offensive structures in real-time during matches, creating dynamic battlefield terrain that evolves throughout the game.
+                Construction is more than placing walls—it is the strategic layer that drives momentum. The toolkit covers barricades, logistics pads, and fast-travel pylons so squads can reshape the fight on demand.
             </div>
-            <div class="content-area">
-                <iframe width="100%" height="315" src="https://www.youtube.com/embed/oFi-AaB6CfE" title="Construction System Showcase" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <div class="dev-showcase">
+                <div class="dev-showcase-media">
+                    <video controls preload="metadata" poster="assets/videos/combine-bootup-poster.png" playsinline>
+                        <source src="assets/videos/combineboot.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="showcase-copy">
+                    <ul class="bullet-list">
+                        <li>Ghost previews show footprint, cover height, and firing lanes before a build locks in.</li>
+                        <li>Server-authored placement keeps griefing in check while still feeling snappy client-side.</li>
+                        <li>Damage states broadcast to the entire squad so triage or repairs trigger immediately.</li>
+                        <li>Build queues reference shared resources, allowing commanders to prioritize remotely.</li>
+                        <li>Integrated VFX and UI callouts mark when fortifications become tactically critical.</li>
+                    </ul>
+                </div>
             </div>
-            <ul class="bullet-list">
-                <li>Real-time structure placement with snap-to-grid system</li>
-                <li>Resource-based building economy with cost balancing</li>
-                <li>Destructible structures with health systems and damage states</li>
-                <li>Strategic positioning gameplay with building placement tactics</li>
-                <li>Visual feedback systems for placement validation and building status</li>
-            </ul>
         </div>
 
-        <!-- War Progression System -->
-        <div class="category-section" id="war-progression">
-            <h3>War Progression System</h3>
+        <div class="category-section" id="map-progression">
+            <h3>Map Progression System</h3>
             <div class="description">
-                The War Progression System creates dynamic match pacing, ensuring every moment feels significant. This system manages objectives, match phases, and escalating intensity to keep gameplay engaging from start to finish.
+                Each match unfolds across sectors, with macro events unlocking new routes, extraction points, and faction-specific cinematics. Progression is communicated through UI overlays, announcer VO, and scripted set pieces.
             </div>
-            <div class="content-area">
-                <iframe width="100%" height="315" src="https://www.youtube.com/embed/1Y5U6Gq9P9A" title="War Progression System Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <div class="dev-showcase">
+                <div class="dev-showcase-media">
+                    <video controls preload="metadata" poster="assets/videos/warfronttitle.png" playsinline>
+                        <source src="assets/videos/overwatchboot.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="showcase-copy">
+                    <ul class="bullet-list">
+                        <li>Dynamic frontlines reroute spawn locations and vehicle drops in real-time.</li>
+                        <li>Escalation logic injects elite AI or environmental hazards when momentum stalls.</li>
+                        <li>Briefing overlays recap captured zones so late-joining players sync immediately.</li>
+                        <li>Phase-specific music stems and lighting cues reinforce narrative pacing.</li>
+                        <li>Match recorder feeds telemetry back into tuning dashboards for post-playtest reviews.</li>
+                    </ul>
+                </div>
             </div>
-            <ul class="bullet-list">
-                <li>Multi-phase match structure with escalating objectives</li>
-                <li>Dynamic difficulty scaling based on team performance</li>
-                <li>Win condition management with multiple victory paths</li>
-                <li>Real-time statistics and match state tracking</li>
-                <li>Tension-building mechanics for competitive depth</li>
-            </ul>
         </div>
 
-        <!-- Elite Unit System -->
+        <div class="category-section" id="revive-system">
+            <h3>Revive System</h3>
+            <div class="description">
+                Down-but-not-out isn’t a binary state here. The revive loop mixes positional risk, timed inputs, and squad economy so medics feel impactful without invalidating lethality.
+            </div>
+            <div class="dev-showcase">
+                <div class="dev-showcase-media">
+                    <video controls preload="metadata" poster="assets/videos/warfronttitle.png" playsinline>
+                        <source src="assets/videos/rebelheal.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="showcase-copy">
+                    <ul class="bullet-list">
+                        <li>Interactive revive window scales based on incoming damage and squad upgrades.</li>
+                        <li>Audio cues escalate urgency for both downed players and medics sprinting to assist.</li>
+                        <li>Revive drones can stabilize allies, buying seconds for manual extraction.</li>
+                        <li>Cooldown tracking prevents spam while rewarding disciplined rotations.</li>
+                        <li>Telemetry dashboards flag hot zones where revive success drops, guiding balance passes.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
         <div class="category-section" id="elite-units">
-            <h3>Elite Unit System</h3>
+            <h3>Elite Units</h3>
             <div class="description">
-                Elite Units are powerful specialized characters that provide unique tactical options. This system balances high-impact gameplay while maintaining fairness through cooldowns, positioning requirements, and team coordination needs.
+                Elite kits introduce asymmetry. Their bespoke weapons, VO, and silhouettes make them easy to read while still feeling devastating when deployed at the right moment.
             </div>
-            <div class="content-area">
-                <div class="placeholder-text">🎬 [ELITE UNITS GAMEPLAY - Video/Footage Goes Here]</div>
+            <div class="dev-showcase">
+                <div class="dev-showcase-media">
+                    <video controls preload="metadata" poster="assets/videos/rebelhud.jpg" playsinline>
+                        <source src="assets/videos/rebelarmor.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="showcase-copy">
+                    <ul class="bullet-list">
+                        <li>Tiered requisition costs guarantee line troops and elites can coexist.</li>
+                        <li>Directional VO and shader pulses broadcast elite positioning to both teams.</li>
+                        <li>Ability scripting supports chained combos, cancels, and counter windows.</li>
+                        <li>Data passes monitor pick/ban rates to keep the roster balanced.</li>
+                        <li>Customization hooks expose hero cosmetics without touching gameplay tuning.</li>
+                    </ul>
+                </div>
             </div>
-            <ul class="bullet-list">
-                <li>Distinct unit archetypes with unique abilities and roles</li>
-                <li>Balanced cost and availability systems to prevent dominance</li>
-                <li>Special ability mechanics with strategic cooldown management</li>
-                <li>Visual identity and animation systems for clarity</li>
-                <li>Skill-based execution with high skill ceiling gameplay</li>
-            </ul>
-        </div>
-
-        <!-- Community Management -->
-        <div class="category-section" id="community">
-            <h3>Community Management</h3>
-            <div class="description">
-                Community Management features empower players to organize, communicate, and compete together. These systems foster long-term engagement and create social structures that enhance the multiplayer experience.
-            </div>
-            <div class="content-area">
-                <div class="placeholder-text">💬 [COMMUNITY FEATURES - Interface Screenshots/Demos]</div>
-            </div>
-            <ul class="bullet-list">
-                <li>Clan and group creation with customizable settings</li>
-                <li>In-game communication channels and messaging systems</li>
-                <li>Leaderboards and competitive ranking systems</li>
-                <li>Community events and seasonal content management</li>
-                <li>Moderation tools and community guidelines enforcement</li>
-            </ul>
-        </div>
-
-        <!-- Development Roadblocks -->
-        <div class="category-section" id="roadblocks">
-            <h3>Development Roadblocks & Solutions</h3>
-            <div class="description">
-                Every ambitious project faces challenges. This section documents the technical hurdles encountered during Project Warfront's development and the innovative solutions implemented to overcome them, showcasing problem-solving and adaptability.
-            </div>
-            <div class="content-area">
-                <div class="placeholder-text">📋 [TECHNICAL CHALLENGES & SOLUTIONS - Documentation/Diagrams]</div>
-            </div>
-            <ul class="bullet-list">
-                <li>Network synchronization challenges with server authoritative validation</li>
-                <li>Balancing gameplay complexity with performance optimization</li>
-                <li>Cross-platform compatibility and platform-specific issues</li>
-                <li>Feature scope management and prioritization strategies</li>
-                <li>Community feedback integration into development cycles</li>
-            </ul>
         </div>
     </div>
 </body>
