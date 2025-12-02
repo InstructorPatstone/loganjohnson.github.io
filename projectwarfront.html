@@ -1187,8 +1187,8 @@
             <div class="overview-content">
                 <p class="overview-eyebrow">Strategic FPS Initiative</p>
                 <h2 id="project-overview-title">Project Overview</h2>
-                <p>Project Warfront is an original multiplayer first-person shooter built from the ground up, combining strategic gameplay mechanics with innovative systems. The game emphasizes teamwork, progression, and competitive depth through unique features that set it apart in the FPS genre.</p>
-                <p>This project showcases advanced game development capabilities including complex system architecture, real-time networking, and polished user experience design. Every system is designed to work cohesively, creating an engaging and balanced gameplay experience.</p>
+                <p>Project Warfront is an original 100 player first-person shooter real-time strategy hybrid multiplayer Half-Life: 2 experience on the Source Engine, combining strategic gameplay mechanics with innovative systems. The game emphasizes teamwork, large-scale progression, and competitive depth through unique features that set it apart in the FPS genre.</p>
+                <p>This project showcases advanced game development capabilities including complex system architecture, real-time networking, and polished user experience design. The only gamemode running the original source engine to accomplish combat at this scale with proper optimization techniques.</p>
             </div>
         </div>
 
@@ -1207,7 +1207,7 @@
             <a href="#map-progression" class="feature-card feature-card-link">
                 <div class="feature-card-icon">🗺️</div>
                 <h3>Map Progression</h3>
-                <p>Dynamic macro layer that unlocks new fronts, spawns, and narrative cues.</p>
+                <p>Dynamic macro progression that adds scale to the battlefield and increases long-term replay value.</p>
             </a>
             <a href="#qol-misc" class="feature-card feature-card-link">
                 <div class="feature-card-icon">⚙️</div>
@@ -1224,11 +1224,11 @@
         <div class="category-section" id="ui-design">
             <h3>UI Design</h3>
             <div class="description">
-                The HUD is engineered to feel militaristic without sacrificing clarity. Every widget animates with purpose, surfacing squad health, resource income, and objective status through layered typography and faction-inspired motion.
+                The HUD is engineered to feel militaristic without sacrificing clarity. Every widget animates with purpose, surfacing squad health, resource income, and objective status through optimized client-side HUD rendering and faction-inspired motion.
             </div>
             <div class="ui-media-grid">
                 <article class="ui-media-block ui-media-block--static" aria-label="Faction HUD layout callouts">
-                    <h4>Dual-Faction HUD Layouts</h4>
+                    <h4>Faction HUD Layouts</h4>
                     <p>Each HUD follows the proper theme of their respective faction. We want the player to feel apart of the faction they're playing with every minor detail possible starting with the HUD.</p>
                     <div class="ui-divider" aria-hidden="true"></div>
                     <div class="media-row media-row-static">
@@ -1321,7 +1321,7 @@
         <div class="category-section" id="construction">
             <h3>Construction System</h3>
             <div class="description">
-                Construction is more than placing walls—it is a permission-driven system that lets factions seed HQs, FOBs, and support structures while keeping the battlefield readable and balanced.
+                A diverse advanced class-driven construction system with over 200 placable buildings from defense, logistics, unit deployment, and specialized headquarter structures. This system alone took over two years to create.
             </div>
 
             <div class="build-menu-grid" aria-label="Faction build menus">
@@ -1336,8 +1336,8 @@
             </div>
             <ul class="bullet-list">
                 <li>Faction-specific construction menus expose four build categories tied directly to each class permission tier.</li>
-                <li>Cards enumerate building name, description, cost, power demand, and the zone(s) you are allowed to deploy within.</li>
-                <li>HQs and FOBs operate as the primary build-radius anchors, ensuring every outpost grows outward with intention.</li>
+                <li>Cards enumerate building name, description, cost, power demand, and the zones you are allowed to deploy within.</li>
+                <li>HQs and FOBs operate as the primary build-radius anchors, ensuring every outpost grows outward with intention. The idea was to make FOBs the conquest objective point that could be placed anywhere making each round unique and different.</li>
             </ul>
 
             <div class="build-media-block" aria-label="Construction gameplay showcase">
@@ -1348,7 +1348,7 @@
                     </video>
                 </div>
                 <div class="build-copy">
-                    <h4>On-Field Build Flow</h4>
+                    <h4>Building Placement</h4>
                     <ul class="bullet-list">
                         <li>Authorized classes browse the menu, pick a structure, and instantly preview its footprint on terrain.</li>
                         <li>Rotation snap defaults to 15°—left/right mouse button nudges allow quick alignment.</li>
@@ -1384,7 +1384,7 @@
                 <div class="build-copy">
                     <h4>Critical Structure Cooldowns</h4>
                     <ul class="bullet-list">
-                        <li>High-impact builds such as HQs and FOBs broadcast a shared cooldown timer so commanders cannot spam power positions.</li>
+                        <li>High-impact builds such as HQs and FOBs broadcast a shared cooldown timer so commanders cannot spam power positions and give the enemy team a chance to attack the HQ without instant invulnerability.</li>
                         <li>The UI locks deploy buttons until the cooldown clears, preventing overlapping bubbles and keeping pacing fair.</li>
                     </ul>
                 </div>
@@ -1411,26 +1411,26 @@
         <div class="category-section" id="map-progression">
             <h3>Map Progression System</h3>
             <div class="description">
-                Branching territory routes turn each map into a strategic election: destroy the enemy HQ and the frontline slides to whichever lane the victors vote to attack next.
+                Each map is a territory that your faction must control to progress the war effort. The first faction to capture the opposing faction's main territory wins the war.
             </div>
             <div class="map-progress-media" aria-label="Territory routing references">
                 <article class="map-media-block">
-                    <p class="media-caption media-caption--top">Campaign Route Overlay</p>
+                    <p class="media-caption media-caption--top">Campaign Route Overlay to better visualize code snippet below</p>
                     <figure class="map-media-figure" data-lightbox-media>
                         <img src="assets/videos/routes.png" alt="Branching map routes with highlighted attack paths" loading="lazy">
                     </figure>
                 </article>
                 <article class="map-media-block">
-                    <p class="media-caption media-caption--top">Routing Code Snippet</p>
+                    <p class="media-caption media-caption--top">Map List Snippet (Does not flow linearly)</p>
                     <figure class="map-media-figure" data-lightbox-media>
                         <img src="assets/videos/mapcode.png" alt="Code snippet dictating campaign route progression" loading="lazy">
                     </figure>
                 </article>
             </div>
             <ul class="bullet-list">
-                <li>The routes overlay translates the non-linear campaign tree so commanders can visualize how each branch maps directly to the logic in <em>mapcode.png</em>.</li>
+                <li>The routes image is an example representation of what the code is doing. Each map has options for winning and losing directions which links to another map in the list.</li>
                 <li>Destroying an HQ immediately ends the round; the defeated faction forfeits that territory while the attackers choose their next objective.</li>
-                <li>Route voting keeps the war effort player-driven—lanes can be prioritized based on narrative beats, logistics, or revenge.</li>
+                <li>Route voting keeps the war effort to player-driven—lanes where the collective of the team can chose the best strategic direction as some routes have terrain that favors the losing side but are faster to reach the enemy main territory.</li>
             </ul>
 
             <div class="build-media-block" aria-label="Forward base destruction alert">
@@ -1443,9 +1443,7 @@
                 <div class="build-copy">
                     <h4>FOB Destruction Warning</h4>
                     <ul class="bullet-list">
-                        <li>The clip shows a faction FOB collapsing and triggering a map-wide alert that the HQ is now exposed.</li>
-                        <li>Engine events propagate the warning to every squad so defense teams can redeploy before the final push.</li>
-                        <li>Supporting callouts also flag logistics officers so they can rebuild a fallback FOB along the active route.</li>
+                        <li>The clip shows a faction FOB collapsing and triggering a team-wide alert that the HQ is now exposed. Allowing the losing team to react and retreat accordingly for HQ defense.</li>
                     </ul>
                 </div>
             </div>
@@ -1460,9 +1458,9 @@
                 <div class="build-copy">
                     <h4>HQ Capture & Map Vote</h4>
                     <ul class="bullet-list">
-                        <li>mapvote.mp4 captures the attacking team blowing up the defending HQ and sealing control of the territory.</li>
-                        <li>The end screen tallies casualties per class so analysts can track attrition before the campaign shifts forward.</li>
-                        <li>Players on the winning side immediately vote on the next route, ensuring the war map advances without downtime.</li>
+                        <li>This video shows the attacking team blowing up the defending HQ and sealing control of the territory.</li>
+                        <li>The end screen tallies casualties per class as a fun little recap. All data is tracked and displayed every 6 months to the community showcasing overall casualty amounts for that war period.</li>
+                        <li>Players on the winning side immediately vote on the next route and the gamemode switches to the next map starting a new round accordingly.</li>
                     </ul>
                 </div>
             </div>
@@ -1471,7 +1469,7 @@
         <div class="category-section" id="qol-misc">
             <h3>QoL & Misc Systems</h3>
             <div class="description">
-                Beyond marquee mechanics, Warfront layers countless comfort features that reduce friction, improve readability, and keep squads synced regardless of skill level or hardware setup.
+                Warfront layers countless comfort features that reduce friction, improve readability, you can find more QoL updates in the <a href="https://discord.gg/mNywsjX">Community Discord</a>.
             </div>
             <section class="qol-subsection" id="map-preset-system">
                 <h4>Map Preset System</h4>
@@ -1487,7 +1485,7 @@
                     </figure>
                 </div>
                 <div class="subsection-copy">
-                    <p>Curated world-state saves mean QA can reboot a 100-player scenario in minutes—no more rebuilding FOB chains or vehicle pools after an unexpected restart.</p>
+                    <p>Curated world-state saves mean developers can reboot a 100-player scenario in minutes—no more rebuilding structures or vehicle pools after an unexpected restart.</p>
                     <ul class="bullet-list">
                         <li>Emergency building and entity caching lets staff reload the last autosave state whenever a server crash interrupts a test.</li>
                         <li>Admins can capture curated presets that respawn critical structures, FOB layouts, and vehicle pools on match start to keep iteration fast.</li>
@@ -1523,7 +1521,7 @@
                 <ul class="bullet-list">
                     <li>Medics instantly spot triage targets thanks to the floating heart icon rendered only for the class, preventing revive roulette.</li>
                     <li>Bleedout UI lets players ping for assistance, mark last-known location, or concede to redeploy if the frontline is lost.</li>
-                    <li>The respawn screen cycles curated gamemode tips so downtime still coaches teams on macro objectives.</li>
+                    <li>The respawn screen cycles curated gamemode tips from a list at random so downtime still coaches teams on macro objectives.</li>
                 </ul>
             </section>
 
@@ -1545,7 +1543,7 @@
                 </div>
                 <ul class="bullet-list">
                     <li>Every respawn surfaces the four primary classes so players can instantly lock the role they need before redeploying.</li>
-                    <li>Creating a squad promotes the founder to NCO, unlocking the full construction kit while other members stay on their chosen primaries.</li>
+                    <li>Creating a squad promotes the founder to NCO, unlocking the full construction kit and vehicle deployment capabilities while other members stay on their chosen primaries.</li>
                     <li>Leaving the squad as the leader forces a fresh class pick, and the next player in the list inherits NCO duties automatically.</li>
                 </ul>
             </section>
@@ -1553,7 +1551,7 @@
             <section class="qol-subsection" id="tech-progression-visuals">
                 <h4>Tech Progression Visuals</h4>
                 <div class="description">
-                    Resistance soldiers visibly evolve as tech tiers unlock, signaling power spikes through armor swaps, shader passes, and bespoke gear silhouettes.
+                    Resistance soldiers visibly evolve as tech tiers unlock, visually displaying the faction increased tech status.
                 </div>
                 <div class="media-row media-row-static" aria-label="Resistance tech appearance progression">
                     <div class="media-stack">
@@ -1567,7 +1565,7 @@
                     </div>
                 </div>
                 <ul class="bullet-list">
-                    <li>The Resistance faction earns class-specific visual upgrades—helmets, armor plates, and emissive trims adjust in the showcase video as tech levels increase.</li>
+                    <li>The Resistance faction earns class-specific visual upgrades; helmets, armor plates, and clothing are also linked to the class type so you can visually identify who is playing what.</li>
                 </ul>
             </section>
         </div>
@@ -1575,12 +1573,12 @@
         <div class="category-section" id="community-management">
             <h3>Community Management</h3>
             <div class="description">
-                Playtests hinge on organized feedback loops—Warfront’s Discord mirrors studio-grade live-ops with transparent updates, curated bug funnels, and data-heavy polls so the dev team always knows what to ship next.
+                Warfront’s Discord mirrors studio-grade live-ops with transparent updates, curated bug funnels, and data-heavy polls so the dev team always knows what to improve next.
             </div>
             <ul class="community-pills" aria-label="Community management pillars">
                 <li>Structured bug intake</li>
                 <li>Transparent devlogs</li>
-                <li>Sentiment tracking</li>
+                <li>Community Polls</li>
                 <li>Self-serve tutorials</li>
             </ul>
             <div class="community-grid" aria-label="Community management workflows">
@@ -1590,7 +1588,7 @@
                     </div>
                     <figcaption>
                         <h4>Bug Reporting Hub</h4>
-                        <p>Ticket-style templates collect repro steps, logs, and media while labels auto-sort issues so engineers can burn down the most disruptive bugs first.</p>
+                        <p>Ticket-style templates collect repro steps, logs, and media while labels auto-sort issues so developers can burn down the most disruptive bugs first.</p>
                     </figcaption>
                 </figure>
                 <figure class="community-card" data-lightbox-media>
@@ -1598,8 +1596,8 @@
                         <img src="assets/videos/discorddevlog.png" alt="Discord developer log channel" loading="lazy">
                     </div>
                     <figcaption>
-                        <h4>Engineering Devlogs</h4>
-                        <p>Every showcase post includes the technical story—performance captures, profiling notes, and systems diagrams so veteran players grasp the why behind each change.</p>
+                        <h4>Devlogs</h4>
+                        <p>Every showcase post includes the technical explanation, profiling notes, and programming talk so players grasp the why behind each change.</p>
                     </figcaption>
                 </figure>
                 <figure class="community-card" data-lightbox-media>
@@ -1607,8 +1605,8 @@
                         <img src="assets/videos/discorddevshowcase.png" alt="Discord dev showcase channel" loading="lazy">
                     </div>
                     <figcaption>
-                        <h4>Showcase Reels</h4>
-                        <p>Video snippets and comparison shots highlight major updates so the wider community can see progress without booting the build.</p>
+                        <h4>Development Showcases</h4>
+                        <p>Video demonstrations of more advanced devlog posts give players a visual of the newly integrated system or feature.</p>
                     </figcaption>
                 </figure>
                 <figure class="community-card" data-lightbox-media>
@@ -1617,7 +1615,7 @@
                     </div>
                     <figcaption>
                         <h4>Transparency Reports</h4>
-                        <p>Announcements track playtest dates, feedback forms, and status updates, making it easy to coordinate hundreds of testers across time zones.</p>
+                        <p>Announcements track playtest dates, feedback forms, and status updates, making it easy to coordinate thousands of testers across time zones.</p>
                     </figcaption>
                 </figure>
                 <figure class="community-card" data-lightbox-media>
@@ -1625,8 +1623,8 @@
                         <img src="assets/videos/discordpolls.png" alt="Discord polls results" loading="lazy">
                     </div>
                     <figcaption>
-                        <h4>Sentiment Polls</h4>
-                        <p>Polls quantify opinions on balance, systems, and UX tweaks, giving the team clean charts before locking tuning passes.</p>
+                        <h4>Polls</h4>
+                        <p>Polls quantify opinions on balance, systems, and UX tweaks, giving the team more direction before executing a new idea.</p>
                     </figcaption>
                 </figure>
                 <figure class="community-card" data-lightbox-media>
@@ -1643,8 +1641,8 @@
                         <img src="assets/videos/tutorial.gif" alt="Warfront tutorial portal" loading="lazy">
                     </div>
                     <figcaption>
-                        <h4>Tutorial Portal</h4>
-                        <p>The public tutorial site delivers animated walkthroughs for construction, tech progression, logistics, and more to onboard fresh squads quickly.</p>
+                        <h4>Tutorial Website</h4>
+                        <p>The public tutorial site delivers animated walkthroughs for construction, tech progression, logistics, and more to easily teach new players.</p>
                     </figcaption>
                 </figure>
             </div>

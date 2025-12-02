@@ -6,66 +6,89 @@
     <title>Unreal Engine 5 | Logan Johnson</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #181a1b 0%, #23272a 100%);
+            background: linear-gradient(135deg, #14181c 0%, #1f252b 100%);
             color: #f3f3f3;
             min-height: 100vh;
-            padding: 2rem;
+            padding: 2.5rem;
         }
+
         .container {
-            max-width: 900px;
+            max-width: 1200px;
             margin: 0 auto;
-            background: rgba(35, 39, 42, 0.92);
-            border-radius: 18px;
-            padding: 2rem;
-            box-shadow: 0 4px 32px rgba(97, 218, 251, 0.067);
+            background: rgba(35, 39, 42, 0.94);
+            border-radius: 22px;
+            padding: 2.5rem 3rem;
+            box-shadow: 0 20px 70px rgba(0, 0, 0, 0.35);
         }
-        h1 {
-            color: #61dafb;
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            text-align: center;
-        }
+
         .back-btn {
             background: linear-gradient(90deg, #61dafb 0%, #a1c4fd 100%);
             color: #23272a;
-            padding: 0.5rem 1.5rem;
+            padding: 0.55rem 1.75rem;
             text-decoration: none;
             border-radius: 6px;
             font-weight: 600;
             display: inline-block;
-            margin-bottom: 2rem;
+            margin-bottom: 1.75rem;
+            box-shadow: 0 6px 18px rgba(97, 218, 251, 0.25);
         }
+
         .back-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 4px 16px rgba(97, 218, 251, 0.3);
+            box-shadow: 0 8px 24px rgba(97, 218, 251, 0.35);
         }
-        p {
-            font-size: 1.1rem;
-            color: #e0e0e0;
-            line-height: 1.6;
-            text-align: center;
-        }
-        .video-section {
-            margin-top: 2.5rem;
-        }
-        .video-section h2 {
-            font-size: 1.8rem;
+
+        h1 {
+            color: #61dafb;
+            font-size: 2.6rem;
             margin-bottom: 0.75rem;
             text-align: center;
+            letter-spacing: 2px;
         }
+
+        .hero-intro {
+            text-align: center;
+            font-size: 1.15rem;
+            color: #dce8f3;
+            max-width: 780px;
+            margin: 0 auto 2rem auto;
+            line-height: 1.7;
+        }
+
+        .video-section h2 {
+            font-size: 1.9rem;
+            text-align: center;
+            margin-bottom: 0.4rem;
+        }
+
         .video-section p {
-            margin-bottom: 1.5rem;
+            text-align: center;
+            color: #b7c6d8;
+            margin-bottom: 1.6rem;
         }
+
+        .video-stage {
+            max-width: 1100px;
+            margin: 0 auto;
+            border-radius: 20px;
+            border: 1px solid rgba(97, 218, 251, 0.3);
+            background: radial-gradient(circle at 20% 20%, rgba(97, 218, 251, 0.08), rgba(12, 15, 19, 0.95));
+            box-shadow: 0 25px 60px rgba(4, 10, 18, 0.6);
+            padding: 1.25rem;
+        }
+
         .video-wrapper {
             position: relative;
-            padding-bottom: 56.25%;
+            padding-bottom: 48%;
             height: 0;
             overflow: hidden;
-            border-radius: 12px;
-            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+            border-radius: 16px;
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
         }
+
         .video-wrapper iframe {
             position: absolute;
             top: 0;
@@ -74,18 +97,90 @@
             height: 100%;
             border: 0;
         }
+
+        .notes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .note-card {
+            background: rgba(21, 25, 31, 0.9);
+            border-radius: 16px;
+            padding: 1.75rem;
+            border: 1px solid rgba(97, 218, 251, 0.15);
+            box-shadow: 0 16px 30px rgba(0, 0, 0, 0.35);
+        }
+
+        .note-card h3 {
+            color: #7fd4ff;
+            font-size: 1.3rem;
+            margin-bottom: 0.9rem;
+        }
+
+        .note-card ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        .note-card li {
+            position: relative;
+            padding-left: 1.4rem;
+            margin-bottom: 0.75rem;
+            color: #d1dcea;
+            line-height: 1.5;
+        }
+
+        .note-card li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            color: #61dafb;
+            font-size: 1.3rem;
+            line-height: 1;
+        }
+
+        @media (max-width: 640px) {
+            body { padding: 1.5rem; }
+            .container { padding: 1.5rem; }
+            .video-stage { padding: 0.85rem; }
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <a href="index.html" class="back-btn">← Back to Home</a>
         <h1>Unreal Engine 5</h1>
+        <p class="hero-intro">An atmosphericmaze prototype showcasing cinematic environments, and effects to build sci-fi level ambience.</p>
+
         <section class="video-section" aria-label="Maze Level video showcase">
             <h2>Maze Level Walkthrough</h2>
-            <p>Check out my first Unreal Engine 5 environment built for a cooperative maze experience.</p>
-            <div class="video-wrapper">
-                <iframe src="https://www.youtube.com/embed/VItFyh-VSXs" title="UE5 Maze Level by Logan Johnson" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <p>My first UE5 environment designed for a simple maze game where the player must run through and destroy coins while running from enemies.</p>
+            <div class="video-stage">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/VItFyh-VSXs" title="UE5 Maze Level by Logan Johnson" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
             </div>
+        </section>
+
+        <section class="notes-grid" aria-label="Design highlights">
+            <article class="note-card">
+                <h3>Level Design Focus</h3>
+                <ul>
+                    <li>Atmospheric dark environment giving a erie but futuristic feel.</li>
+                    <li>Entities and models added to certain hallways to enhance immersion and grab the player attention and draw to move that direction.</li>
+                </ul>
+            </article>
+            <article class="note-card">
+                <h3>Particles & Atmosphere</h3>
+                <ul>
+                    <li>Fog ribbons and dust motes drift through cracked ceiling panels to sell abandoned infrastructure.</li>
+                    <li>Localized ember bursts trigger near malfunctioning panels, synced to reactive audio cues.</li>
+                    <li>Performance budget stays stable with LOD-driven particle culling and shared sprite sheets.</li>
+                </ul>
+            </article>
         </section>
     </div>
 </body>

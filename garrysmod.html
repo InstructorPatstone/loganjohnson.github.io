@@ -198,14 +198,17 @@
             border: 0;
         }
         .video-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.25rem;
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
         }
         .video-card {
             display: flex;
             flex-direction: column;
             gap: 0.6rem;
+            flex: 1 1 480px;
+            max-width: 640px;
         }
         .video-caption {
             font-size: 0.95rem;
@@ -230,12 +233,22 @@
         }
         .media,
         .teleporter,
-        .lvs,
-        .manhack,
+        .depot,
+        .artillery,
         .callout {
             grid-column: span 2;
             border: 1px solid rgba(97, 218, 251, 0.25);
             background: linear-gradient(135deg, rgba(97, 218, 251, 0.1), rgba(13, 18, 26, 0.95));
+        }
+        .dual-showcase {
+            grid-column: 1 / -1;
+            display: flex;
+            gap: 1.5rem;
+            width: 100%;
+        }
+        .dual-showcase .card {
+            flex: 1 1 0;
+            max-width: none;
         }
         .callout p {
             font-size: 1.05rem;
@@ -250,6 +263,9 @@
             .manhack,
             .callout {
                 grid-column: span 1;
+            }
+            .dual-showcase {
+                flex-direction: column;
             }
         }
         @media (max-width: 600px) {
@@ -267,7 +283,7 @@
                 <a href="index.html" class="back-btn">← Back to Home</a>
                 <div class="eyebrow">Helix Framework Portfolio</div>
                 <h1>Garry's Mod Projects</h1>
-                <p class="lead">Curated Project Warfront modules ranging from Combine onboarding tech to resistance engineering feats, each blending narrative-driven UX, custom audio, and Helix-friendly integrations.</p>
+                <p class="lead">Configurable plugins originally created for Project Warfront designed for easy integration and customization for any Garry's Mod server.</p>
                 <div class="hero-stats">
                     <div class="stat-card">
                         <div class="stat-label">Scope</div>
@@ -277,10 +293,6 @@
                         <div class="stat-label">Tech Stack</div>
                         <div class="stat-value">Lua · Helix</div>
                     </div>
-                    <div class="stat-card">
-                        <div class="stat-label">Status</div>
-                        <div class="stat-value">Production Ready</div>
-                    </div>
                 </div>
             </div>
         </header>
@@ -288,7 +300,7 @@
         <main class="content-grid">
             <section class="card overview">
                 <h2>Combine HUD Bootup</h2>
-                <p>The Combine HUD Bootup Plugin plays an in-universe startup ceremony when a Combine character loads in, setting the tone with interference, vocal confirmations, and staged UI reveals. It runs on first spawn, after reconnects, and any time a session is freshly initialized to keep immersion consistent.</p>
+                <p>The Combine HUD Bootup Plugin plays an immersive startup sequence when a Combine character loads in, setting the tone with interference, vocal confirmations, and staged UI reveals. It runs on first spawn, after reconnects, and any time a session is freshly initialized to keep immersion consistent.</p>
                 <div class="pill-row">
                     <span class="pill">Session-aware triggering</span>
                     <span class="pill">Custom audio suite</span>
@@ -302,7 +314,7 @@
                 <ul class="detail-list">
                     <li>Create anticipation by delaying tactical HUD overlays until the "boot" completes.</li>
                     <li>Use Combine-styled voice comms and tones so players instantly know their faction context.</li>
-                    <li>Keep the experience lightweight so it never blocks spawning beyond a few seconds.</li>
+                    <li>Simple client-side command that can toggle the boot-sequence for those who don't want to see it.</li>
                     <li>Ensure the sequence replays on reconnects without manual intervention.</li>
                 </ul>
             </section>
@@ -339,7 +351,7 @@
                                 Your browser does not support the video tag.
                             </video>
                         </div>
-                        <p class="video-caption">Command HUD boot for frontline Combine soldiers with staged subsystem bring-up.</p>
+                        <p class="video-caption">Metropolice-Themed HUD Boot.</p>
                     </div>
                     <div class="video-card">
                         <div class="video-wrapper">
@@ -348,7 +360,7 @@
                                 Your browser does not support the video tag.
                             </video>
                         </div>
-                        <p class="video-caption">Overwatch class variant showcasing alternate UX, role-specific information and visuals.</p>
+                        <p class="video-caption">Overwatch-Themed HUD Boot.</p>
                     </div>
                 </div>
             </section>
@@ -365,49 +377,81 @@
 
             <section class="card teleporter" aria-label="Resistance teleporter showcase">
                 <h3>Resistance Teleporter Construction Entity</h3>
-                <p>This short-range teleporter brings Project Warfront's resistance engineering fantasy to life. Players can deploy the entity, designate any safe coordinate on the map, and watch as multiple allies, props, or even vehicles phase through a bespoke particle tunnel to the destination.</p>
+                <p>Players can deploy the entity, designate any safe coordinate on the map, and watch as multiple allies, props, or even vehicles phase through a particle tunnel to the destination.</p>
                 <div class="iframe-wrapper">
                     <iframe src="https://www.youtube.com/embed/enDZDMiyvqg" title="Resistance Teleporter Showcase" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
                 <ul class="detail-list">
-                    <li>Fully animated, interactable control console lets players select any in-bounds coordinate.</li>
+                    <li>Fully animated, interactable map view lets players select any in-bounds coordinate.</li>
                     <li>Supports batching multiple players, physics entities, props, and vehicles through the same jump.</li>
                     <li>Destination zone displays a high-energy orb so defenders know an arrival is imminent.</li>
                     <li>Unique particle layers and light surges fire throughout the teleportation window.</li>
                     <li>Terrain validation cancels requests that would place users outside navigable space.</li>
-                    <li>Ships as a resistance-only construction option, balancing the Combine HUD feature set.</li>
+                    <li>Designed for Project Warfront but easily configurable to work independently.</li>
                 </ul>
             </section>
 
-            <section class="card lvs" aria-label="Helix support for LVS Hunter-Chopper">
-                <h3>Helix ↔ LVS Hunter-Chopper Overhaul</h3>
-                <p>Built a custom integration layer between the Helix framework and LVS so pilots can field the Hunter-Chopper with fully reactive Combine UI, cockpit-ready animations, and an audio suite crafted from scratch.</p>
-                <div class="iframe-wrapper">
-                    <iframe src="https://www.youtube.com/embed/tm8P_I7D36M" title="Helix LVS Hunter-Chopper Showcase" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-                <ul class="detail-list">
-                    <li>Overhauled crosshair HUD with Combine styling, dynamic reticles, and charge indicators that pulse with player input.</li>
-                    <li>Engine startup, rotor wash, flight loops, and main gun charge all use audio to match the faction fiction.</li>
-                    <li>Extended LVS to respect Helix animation states so the pilot playermodel sits correctly without snapping or T-posing.</li>
-                    <li>Helix support hooks keep the cockpit camera, UI, and faction permissions synchronized during seat swaps.</li>
-                    <li>Reactive elements highlight throttle, yaw, and weapon state, giving real-time feedback in the HUD.</li>
-                </ul>
-            </section>
+            <div class="dual-showcase">
+                <section class="card depot" aria-label="Vehicle deployment depot showcase">
+                    <h3>Vehicle Deployment Depot</h3>
+                    <p>A Helix-friendly depot entity that streamlines how factions requisition vehicles. Interacting with the structure displays a menu of assets, handles queuing, and spawns the chosen vehicle directly onto an aligned pad.</p>
+                    <div class="iframe-wrapper">
+                        <iframe src="https://www.youtube.com/embed/vR2Yxjysd3c" title="Vehicle Deployment Depot Showcase" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <ul class="detail-list">
+                        <li>Context-sensitive menu only appears when players interact with the depot shell, keeping clutter off the HUD.</li>
+                        <li>Every vehicle entry lists cost, slot count, and cooldown so players understand the queue before committing.</li>
+                        <li>Adjustable queue length and timer tuning live in a config file, making balance passes painless.</li>
+                        <li>Selected vehicles materialize on the spawn pad with faction skins applied and physics primed.</li>
+                        <li>Safety checks block spawns if the pad is occupied, preventing accidental pileups.</li>
+                    </ul>
+                </section>
 
-            <section class="card manhack" aria-label="Improved deployable manhack showcase">
-                <h3>Improved Deployable Manhack</h3>
-                <p>A tactical Helix inventory item that spawns a loyal manhack companion on demand. The drone shadows its owner, intercepts nearby hostiles, and intelligently returns to formation once the threat is cleared, all while respecting faction relationships.</p>
-                <div class="iframe-wrapper">
-                    <iframe src="https://www.youtube.com/embed/UFUxYIpjfTI" title="Improved Deployable Manhack Showcase" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-                <ul class="detail-list">
-                    <li>Deploy action spawns the manhack at the player’s position and begins a throttled follow loop for performance.</li>
-                    <li>When a valid enemy enters range, the drone breaks formation, attacks, then reacquires its owner after the kill.</li>
-                    <li>Self-destruct safeguards trigger on player death or character swap to prevent orphaned NPCs.</li>
-                    <li>No-collide filters keep the manhack from damaging its owner or same-faction allies in close quarters.</li>
-                    <li>Advanced Helix relationship tables ensure it exclusively targets opposing players/NPCs.</li>
-                </ul>
-            </section>
+                <section class="card artillery" aria-label="Mobile artillery towing showcase">
+                    <h3>Mobile Artillery Towing System</h3>
+                    <p>This Helix plugin upgrades artillery logistics by letting operators hitch gun platforms to approved vehicles, tow them across the map, then redeploy faster than dragging entities by hand.</p>
+                    <div class="iframe-wrapper">
+                        <iframe src="https://www.youtube.com/embed/Phac_8T-K-M" title="Mobile Artillery Towing Showcase" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <ul class="detail-list">
+                        <li>Artillery pieces display when a compatible hitch vehicle is nearby, reducing guesswork during setup.</li>
+                        <li>Attachment flow locks the cannon to the towing chassis, syncing physics constraints for stable transit.</li>
+                        <li>On arrival, crews can detach and instantly resume manual firing without reconfiguration.</li>
+                        <li>Server-side validation ensures only authorized classes initiate towing to prevent griefing.</li>
+                    </ul>
+                </section>
+            </div>
+
+            <div class="dual-showcase">
+                <section class="card lvs" aria-label="Helix support for LVS Hunter-Chopper">
+                    <h3>Helix ↔ LVS Hunter-Chopper Overhaul</h3>
+                    <p>Built a custom integration layer between the Helix framework and LVS so players can field the Hunter-Chopper with fully reactive Combine UI, cockpit-ready animations, and an audio suite crafted from scratch.</p>
+                    <div class="iframe-wrapper">
+                        <iframe src="https://www.youtube.com/embed/tm8P_I7D36M" title="Helix LVS Hunter-Chopper Showcase" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <ul class="detail-list">
+                        <li>Overhauled crosshair HUD with Combine styling, dynamic reticles, and charge indicators that pulse with player input.</li>
+                        <li>Engine startup, rotor wash, flight loops, and main gun charge all use audio to match the faction aesthetic.</li>
+                        <li>Extended LVS to respect Helix animation states so the pilot playermodel sits correctly without snapping or T-posing.</li>
+                        <li>Reactive elements highlight throttle, yaw, and weapon state, giving real-time feedback in the HUD.</li>
+                    </ul>
+                </section>
+
+                <section class="card manhack" aria-label="Improved deployable manhack showcase">
+                    <h3>Improved Deployable Manhack</h3>
+                    <p>A tactical Helix inventory item that spawns a manhack drone. The drone shadows its owner, intercepts nearby hostiles, and intelligently returns to formation once the threat is cleared, all while respecting faction relationships.</p>
+                    <div class="iframe-wrapper">
+                        <iframe src="https://www.youtube.com/embed/UFUxYIpjfTI" title="Improved Deployable Manhack Showcase" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <ul class="detail-list">
+                        <li>Deploy action spawns the manhack at the player’s position and begins a throttled follow loop for performance.</li>
+                        <li>When a valid enemy enters range, the drone breaks formation, attacks, then reacquires its owner after the kill.</li>
+                        <li>Self-destruct safeguards trigger on player death or character swap to prevent orphaned NPCs.</li>
+                        <li>No-collide filters keep the manhack from damaging its owner or same-faction allies in close quarters.</li>
+                        <li>Advanced Helix relationship tables ensure it exclusively targets opposing players/NPCs.</li>
+                    </ul>
+                </section>
+            </div>
         </main>
     </div>
 </body>
